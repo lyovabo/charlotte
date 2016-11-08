@@ -1,0 +1,5 @@
+#!/bin/bash -eu
+
+tmux new -d -s haml-and-sass 'sass --watch sass/style.scss:assets/css/style.css --style compressed' \; \
+  split-window -d 'sass --watch sass/bootstrap.scss:assets/css/bootstrap.css --style compressed' \; \
+  attach \;
