@@ -1,313 +1,423 @@
-    @import "font-awesome/font-awesome";
-    @import "bootstrap";
-    @function rem-calc($values, $base-value: 22px) {
-        $max: length($values);
-        $remValues: ();
-        @if $max==1 {
-            @return convert-to-rem(nth($values, 1), $base-value);
-        }
-        @for $i from 1 through $max {
-            $remValues: append($remValues, convert-to-rem(nth($values, $i), $base-value));
-        }
-        @return $remValues;
-    }
-    
-    @function convert-to-rem($value, $base-value: 10px) {
-        $value: strip-unit($value) / strip-unit($base-value) * 1rem;
-        @if ($value==0rem) {
-            $value: 0;
-        } // Turn 0rem into 0
-        @return $value;
-    }
-    
-    // It strips the unit of measure and returns it
-    @function strip-unit($num) {
-        @return $num / ($num * 0 + 1);
-    }
-    
-    $footerHeight: 73px;
-    $retina-media-query: "only screen and (-webkit-min-device-pixel-ratio: 2)," + "only screen and (min--moz-device-pixel-ratio: 2)," + "only screen and (-o-min-device-pixel-ratio: 2/1)," + "only screen and (min-device-pixel-ratio: 2)," + "only screen and (min-resolution: 192dpi)," + "only screen and (min-resolution: 2dppx)";
-    /* Sticky footer styles
+@import "font-awesome/font-awesome";
+@import "bootstrap";
+@function rem-calc($values, $base-value: 22px) {
+  $max: length($values);
+  $remValues: ();
+  @if $max==1 {
+    @return convert-to-rem(nth($values, 1), $base-value);
+  }
+  @for $i from 1 through $max {
+    $remValues: append($remValues, convert-to-rem(nth($values, $i), $base-value));
+  }
+  @return $remValues;
+}
+@function convert-to-rem($value, $base-value: 10px) {
+  $value: strip-unit($value) / strip-unit($base-value) * 1rem;
+  @if ($value==0rem) {
+    $value: 0;
+  } // Turn 0rem into 0
+  @return $value;
+}
+// It strips the unit of measure and returns it
+@function strip-unit($num) {
+  @return $num / ($num * 0 + 1);
+}
+$footerHeight: 73px;
+$retina-media-query: "only screen and (-webkit-min-device-pixel-ratio: 2)," + "only screen and (min--moz-device-pixel-ratio: 2)," + "only screen and (-o-min-device-pixel-ratio: 2/1)," + "only screen and (min-device-pixel-ratio: 2)," + "only screen and (min-resolution: 192dpi)," + "only screen and (min-resolution: 2dppx)";
+
+/* Sticky footer styles
 -------------------------------------------------- */
-    
-    html {
-        position: relative;
-        min-height: 100%;
-    }
-    
-    body {
-        /* Margin bottom by footer height */
-        margin-bottom: $footerHeight;
-    }
-    /* Custom page CSS
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 125px;
+}
+
+/* Custom page CSS
 -------------------------------------------------- */
-    /* Not required for template or sticky footer method. */
-    
-    body > .container {
-        padding: $footerHeight 15px 0;
+
+
+/* Not required for template or sticky footer method. */
+
+body > .container {
+  padding: $footerHeight 15px 0;
+}
+
+
+.container .text-muted {
+  margin: 20px 0;
+}
+#footer > .container {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+code {
+  font-size: 80%;
+}
+.icon-flag-rus {
+  display: block;
+  width: 24px;
+  height: 24px;
+  float: right;
+  background-image: url('../img/icons/flag_ru.png');
+  background-repeat: no-repeat;
+
+}
+.languages {
+  width: 62px;
+   &:hover {
+    cursor: pointer;
+  }
+  .language-name {
+    display: block;
+    height: 100%;
+    float: left;
+    color: #fff;
+    text-transform: uppercase;
+    line-height: 22px;
+  }
+}
+.logo {
+  text-indent: -999px;
+  line-height: 0;
+  padding: 0;
+  position: relative;
+  &.with-caption {
+    &:after {
+      display: block;
+      width: 300px;
+      height: 50px;
+      content: attr(data-caption);
+      position: relative;
+      right: -130px;
+      top: -40px;
+      color: #fff;
+      font-size: 30px;
+      font-weight: 100;
+      text-transform: uppercase;
+      text-indent: 0;
     }
-    
-    .container .text-muted {
-        margin: 20px 0;
+  }
+}
+.text-logo-icon {
+  span {
+    &:first-child {
+      text-transform: uppercase;
+      font-size: 16px;
+      letter-spacing: 2px;
+      line-height: 0px;
     }
-    
-    #footer > .container {
-        padding-right: 15px;
-        padding-left: 15px;
+    &:last-child {
+      font-size: 12px;
+      width: 100%;
+      display: inline-block;
+      letter-spacing: 0;
+      text-transform: capitalize;
     }
-    
-    code {
-        font-size: 80%;
+  }
+}
+#section-fog {
+  background-image: url('../img/fog.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  height: 220px;
+  overflow: hidden;
+  &:after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    display: block;
+    content: "";
+    z-index: 1;
+    background-color: rgba(240, 86, 148, 0.3);
+  }
+  video {
+    width: 100%;
+  }
+}
+#change-life-link {
+  position: absolute;
+  top: 50%;
+  margin-top: -25px;
+  padding: 0 7%;
+  height: 50px;
+  z-index: 3;
+  a , p {
+     line-height: 45px;
+  }
+  p {
+    height: 100%;
+    margin-bottom: 0;
+    background-color: rgba(0, 0, 0, 0.46);
+  }
+  a {
+    display: block;
+    height: 100%;
+    float: right;
+    background-color: #d61043;
+    color: #fff;
+    font-size: 21px;
+    font-weight: 100;
+    &:hover {
+      background: rgba(171, 5, 53, 0.7);
+      &:after {
+        border-left-color: rgba(171, 5, 53, 0.7);
+      }
     }
-    
-    #logo {
-        text-indent: -999px;
-        line-height: 0;
-        padding: 0;
+    &:after {
+      width: 0;
+      content: "";
+      height: 0;
+      position: absolute;
+      top: 0;
+      right: -23px;
+      display: block;
+      border-top: 25px solid transparent;
+      border-bottom: 25px solid transparent;
+      border-left: 23px solid #d61043;
     }
-    
-    #text-logo {
-        text-decoration: none;
-        color: $text-color;
-        font-size: 30px;
-        font-family: sans-serif;
-        font-weight: lighter;
+
+  }
+}
+#carousel-homepage {
+  .carousel-inner {
+    > .item > img {
+      width: 100%;
+      height: 100%;
     }
-    
-    .navbar-nav {
-        margin-top: 0px;
-        margin-left: 50px;
+    .carousel-caption {
+      border: 1px solid white;
+      width: 30%;
+      height: 50%;
+      top: 20%;
+      left: 35%;
+      background-color: transparent;
+      border: solid rgba(255, 255, 255, 1) 1px;
+      cursor: pointer !important;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.3);
+        border-color: rgba(255, 255, 255, 1);
+        transition: border-color 0.4s ease 0s, background-color 0.4s ease 0s;
+      }
+      div {
+        width: 70%;
+        height: 40%;
+        margin-bottom: 20px;
+        h3 {
+          text-transform: uppercase;
+          font-size: 4.4vw;
+          margin: 0px;
+          color: #000;
+          font-weight: 500;
+          text-shadow: #c8c8c8 1px 1px 0px, #b4b4b4 0px 2px 0px, #a0a0a0 0px 3px 0px, rgba(140, 140, 140, 0.498039) 0px 4px 0px, #787878 0px 0px 0px, rgba(0, 0, 0, 0.498039) 0px 5px 10px;
+        }
+      }
+      a {
+        display: flex;
+        width: 50%;
+        color: #fff;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid #fff;
+        height: 45px;
+        &:hover {
+          text-decoration: none;
+        }
+      }
     }
-    
-    .text-logo-icon {
-        span {
-            &:first-child {
-                text-transform: uppercase;
-                font-size: 16px;
-                letter-spacing: 2px;
-                line-height: 0px;
-            }
-            &:last-child {
-                font-size: 12px;
-                width: 100%;
-                display: inline-block;
-                letter-spacing: 0;
-                text-transform: capitalize;
-            }
-        }
+  }
+  .svg {
+    fill: rgba(255, 255, 255, 1);
+    stroke: rgba(255, 255, 255, 1);
+    stroke-width: 1px;
+    width: 3%;
+    position: absolute;
+    top: 44%;
+  }
+  .left {
+    left: 3%;
+  }
+  .right {
+    right: 3%;
+    transform: scale(-1);
+  }
+}
+#footer {
+  a {
+    color: #fff;
+    &:hover {
+      color: #fff;
     }
-    
-    #fog-wrapper {
-        background-image: url('../img/fog.jpg');
-        background-repeat: no-repeat;
-        background-size: cover;
-        position: relative;
-        height: 220px;
-        div {
-            position: absolute;
-            top: 0;
-            height: 100%;
-            background-color: rgba(240, 86, 148, 0.3);
-            width: 100%;
-        }
-        video {
-            visibility: visible;
-            position: relative;
-            height: 100%;
-            width: 100%;
-        }
+  }
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  min-height: $footerHeight;
+  background-color: #000;
+}
+#social-networks {
+  font-size: 28px;
+  address {
+    margin-top: 12px;
+    font-size: 12px;
+    color: #c2bebe;
+    p {
+      margin-bottom: 0;
     }
-    
-    #carousel-example-generic {
-        .carousel-inner {
-            > .item > img,
-            .carousel-inner > .item > a > img {
-                width: 100%;
-                height: 100%;
-            }
-            .carousel-caption {
-                border: 1px solid white;
-                width: 30%;
-                height: 50%;
-                top: 20%;
-                left: 35%;
-                background-color: transparent;
-                border: solid rgba(255, 255, 255, 1) 1px;
-                cursor: pointer !important;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                flex-direction: column;
-                &:hover {
-                    background-color: rgba(255, 255, 255, 0.3);
-                    border-color: rgba(255, 255, 255, 1);
-                    transition: border-color 0.4s ease 0s, background-color 0.4s ease 0s;
-                }
-                div {
-                    width: 70%;
-                    height: 40%;
-                    margin-bottom: 20px;
-                    h3 {
-                        text-transform: uppercase;
-                        font-size: 4.4vw;
-                        margin: 0px;
-                        color: #000;
-                        font-weight: 500;
-                        text-shadow: #c8c8c8 1px 1px 0px, #b4b4b4 0px 2px 0px, #a0a0a0 0px 3px 0px, rgba(140, 140, 140, 0.498039) 0px 4px 0px, #787878 0px 0px 0px, rgba(0, 0, 0, 0.498039) 0px 5px 10px;
-                    }
-                }
-                a {
-                    display: flex;
-                    width: 50%;
-                    color: #fff;
-                    align-items: center;
-                    justify-content: center;
-                    border: 1px solid #fff;
-                    height: 45px;
-                    &:hover {
-                        text-decoration: none;
-                    }
-                }
-            }
-        }
-        .svg {
-            fill: rgba(255, 255, 255, 1);
-            stroke: rgba(255, 255, 255, 1);
-            stroke-width: 1px;
-            width: 3%;
-            position: absolute;
-            top: 44%;
-        }
-        .left {
-            left: 3%;
-        }
-        .right {
-            right: 3%;
-            transform: scale(-1);
-        }
+    a {
+      color: #c2bebe;
+      text-decoration: none;
+      &:hover {
+        color: #c2bebe;
+      }
     }
-    
-    footer {
-        p {
-            margin-bottom: 0;
-        }
-        a {
-            text-decoration: none;
-            color: #fff;
-            &:hover {
-                color: #fff;
-            }
-        }
-        position: absolute;
-        bottom: 0;
-        width: 100%;
-        /* Set the fixed height of the footer here */
-        min-height: $footerHeight;
-        background-color: #000;
-        #social-networks {
-            font-size: 28px;
-            address {
-                margin-top: 12px;
-                font-size: 12px;
-                color: #c2bebe;
-                p {
-                    margin-bottom: 0;
-                }
-                a {
-                    color: #c2bebe;
-                    text-decoration: none;
-                    &hover {
-                        color: #c2bebe;
-                    }
-                }
-            }
-            h5 {
-                margin-top: 0px;
-                line-height: 12px;
-                margin-bottom: 0px;
-            }
-        }
+  }
+  h5 {
+    margin-top: 0;
+    line-height: 12px;
+    margin-bottom: 0;
+  }
+}
+// .background-video { 
+//   position: fixed;
+//   top: 50%;
+//   left: 50%;
+//   min-width: 100%;
+//   min-height: 100%;
+//   width: auto;
+//   height: auto;
+//   z-index: -100;
+//   transform: translate(-50%, -50%);
+// }
+
+/* ==========================================================================
+Media Queries
+========================================================================== */
+
+
+/* Retina */
+
+@media #{$retina-media-query} {
+  .img-retina-holder {
+    display: inline-block;
+    max-width: 100%;
+    background-size: 100% 100%;
+    > img {
+      visibility: hidden;
     }
-    /* ==========================================================================
-   Media Queries
-   ========================================================================== */
-    /* Retina */
-    
-    @media #{$retina-media-query} {
-        .img-retina-holder {
-            display: inline-block;
-            max-width: 100%;
-            background-size: 100% 100%;
-            > img {
-                visibility: hidden;
-            }
-        }
+  }
+}
+
+/* 480px and bigger */
+
+#social-networks {
+  font-size: 28px;
+  address {
+    margin-top: 12px;
+    font-size: 12px;
+    color: #c2bebe;
+    p {
+      margin-bottom: 0;
     }
-    /* 480px and bigger */
-    
-    @media (min-width: $screen-xs-min) {}
-    /* 480px and smaller */
-    
-    @media (max-width: $screen-xs) {
-        html {
-            font-size: 16.5px;
-        }
+    a {
+      color: #c2bebe;
+      text-decoration: none;
+      &:hover {
+        color: #c2bebe;
+      }
     }
-    /* 768px and smaller */
-    
-    @media (max-width: $screen-xs-max) {
-        body {
-            font-size: 14px;
-            line-height: 1.57142;
-        }
-    }
-    /* 768px and bigger */
-    
-    @media (min-width: $screen-sm-min) {}
-    /* 480px to 767px */
-    
-    @media (min-width: $screen-xs-min) and (max-width: $screen-xs-max) {
-        html {
-            font-size: 17px;
-        }
-    }
-    /* 768px to 991px */
-    
-    @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
-        html {
-            font-size: 16px;
-        }
-        .navbar-nav {
-            margin-top: 0px;
-            margin-left: 0;
-        }
-    }
-    /* 992px and smaller */
-    
-    @media (max-width: $screen-sm-max) {}
-    /* 992px and bigger */
-    
-    @media (min-width: $screen-md-min) {}
-    /* 992px to 1199px */
-    
-    @media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
-        html {
-            font-size: 19px;
-        }
-    }
-    /* 1200px and bigger */
-    
-    @media (min-width: $screen-lg-min) {
-        html {
-            font-size: 22px;
-        }
-    }
-    
-    @media (min-width: 1500px) {
-        html {
-            font-size: 28px;
-        }
-        .container {
-            width: 1310px;
-        }
-    }
+  }
+  h5 {
+    margin-top: 0;
+    line-height: 12px;
+    margin-bottom: 0;
+  }
+}
+@media (min-width: $screen-xs-min) {}
+
+/* 480px and smaller */
+
+@media (max-width: $screen-xs) {
+  html {
+    font-size: 16.5px;
+  }
+}
+
+/* 768px and smaller */
+
+@media (max-width: $screen-xs-max) {
+  body {
+    font-size: 14px;
+    line-height: 1.57142;
+  }
+}
+
+/* 768px and bigger */
+
+@media (min-width: $screen-sm-min) {}
+
+/* 480px to 767px */
+
+@media (min-width: $screen-xs-min) and (max-width: $screen-xs-max) {
+  html {
+    font-size: 17px;
+  }
+}
+
+/* 768px to 991px */
+
+@media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+  html {
+    font-size: 16px;
+  }
+}
+
+/* 992px and smaller */
+
+@media (max-width: $screen-sm-max) {}
+
+/* 992px and bigger */
+
+@media (min-width: $screen-md-min) {}
+
+/* 992px to 1199px */
+
+@media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
+  html {
+    font-size: 19px;
+  }
+  .navbar-nav {
+    margin-top: 50px;
+  }
+}
+
+/* 1200px and bigger */
+
+@media (min-width: $screen-lg-min) {
+  html {
+    font-size: 22px;
+  }
+  .navbar-nav {
+    margin-top: 50px;
+  }
+}
+@media (min-width: 1500px) {
+  html {
+    font-size: 28px;
+  }
+  .container {
+    width: 1310px;
+  }
+}
