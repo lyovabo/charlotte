@@ -24,7 +24,51 @@
 }
 $footerHeight: 73px;
 $retina-media-query: "only screen and (-webkit-min-device-pixel-ratio: 2)," + "only screen and (min--moz-device-pixel-ratio: 2)," + "only screen and (-o-min-device-pixel-ratio: 2/1)," + "only screen and (min-device-pixel-ratio: 2)," + "only screen and (min-resolution: 192dpi)," + "only screen and (min-resolution: 2dppx)";
-
+// Global classes
+.btn-primary {
+  background-image: url(https://static.parastorage.com/services/skins/2.1229.56/images/wysiwyg/core/themes/base/shiny1button_bg.png);
+  background-position: 50% 50%;
+  background-repeat: repeat-x;
+  border-size: 0px;
+  border-radius: $btn-border-radius-large;
+  &:hover {
+    background-color: rgba(237, 7, 99, 0.7);
+  }
+}
+.background-video {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -100;
+  transform: translate(-50%, -50%);
+}
+.margin-bottom-section {
+  margin-bottom: 20px;
+}
+.margin-top-section {
+  margin-top: 20px;
+}
+.margin-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+.float-no {
+  float: none!important;
+}
+.full-width {
+  width: 100%;
+}
+.display-block {
+  display: block;
+}
+.color-pink {
+  color: $pink-color;
+}
 /* Sticky footer styles
 -------------------------------------------------- */
 
@@ -36,6 +80,47 @@ body {
   /* Margin bottom by footer height */
   margin-bottom: 125px;
 }
+#footer {
+  a {
+    color: #fff;
+    &:hover {
+      color: #fff;
+    }
+  }
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  min-height: $footerHeight;
+  background-color: #000;
+}
+#footer > .container {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+#social-networks {
+  font-size: 28px;
+  address {
+    margin-top: 12px;
+    font-size: 12px;
+    color: #c2bebe;
+    p {
+      margin-bottom: 0;
+    }
+    a {
+      color: #c2bebe;
+      text-decoration: none;
+      &:hover {
+        color: #c2bebe;
+      }
+    }
+  }
+  h5 {
+    margin-top: 0;
+    line-height: 12px;
+    margin-bottom: 0;
+  }
+}
 
 /* Custom page CSS
 -------------------------------------------------- */
@@ -43,21 +128,15 @@ body {
 
 /* Not required for template or sticky footer method. */
 
-body > .container {
-  padding: $footerHeight 15px 0;
-}
-
-
 .container .text-muted {
   margin: 20px 0;
-}
-#footer > .container {
-  padding-right: 15px;
-  padding-left: 15px;
 }
 code {
   font-size: 80%;
 }
+
+/*header*/
+
 .icon-flag-rus {
   display: block;
   width: 24px;
@@ -65,11 +144,10 @@ code {
   float: right;
   background-image: url('../img/icons/flag_ru.png');
   background-repeat: no-repeat;
-
 }
 .languages {
   width: 62px;
-   &:hover {
+  &:hover {
     cursor: pointer;
   }
   .language-name {
@@ -120,72 +198,8 @@ code {
     }
   }
 }
-#section-fog {
-  background-image: url('../img/fog.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: relative;
-  height: 220px;
-  overflow: hidden;
-  &:after {
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    display: block;
-    content: "";
-    z-index: 1;
-    background-color: rgba(240, 86, 148, 0.3);
-  }
-  video {
-    width: 100%;
-  }
-}
-#change-life-link {
-  position: absolute;
-  top: 50%;
-  margin-top: -25px;
-  padding: 0 7%;
-  height: 50px;
-  z-index: 3;
-  a , p {
-     line-height: 45px;
-  }
-  p {
-    height: 100%;
-    margin-bottom: 0;
-    background-color: rgba(0, 0, 0, 0.46);
-  }
-  a {
-    display: block;
-    height: 100%;
-    float: right;
-    background-color: #d61043;
-    color: #fff;
-    font-size: 21px;
-    font-weight: 100;
-    &:hover {
-      background: rgba(171, 5, 53, 0.7);
-      &:after {
-        border-left-color: rgba(171, 5, 53, 0.7);
-      }
-    }
-    &:after {
-      width: 0;
-      content: "";
-      height: 0;
-      position: absolute;
-      top: 0;
-      right: -23px;
-      display: block;
-      border-top: 25px solid transparent;
-      border-bottom: 25px solid transparent;
-      border-left: 23px solid #d61043;
-    }
-
-  }
-}
+//end header
+//homepage
 #carousel-homepage {
   .carousel-inner {
     > .item > img {
@@ -253,54 +267,146 @@ code {
     transform: scale(-1);
   }
 }
-#footer {
-  a {
-    color: #fff;
-    &:hover {
-      color: #fff;
-    }
+#section-fog {
+  background-image: url('../img/fog.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  height: 220px;
+  overflow: hidden;
+  &:after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    display: block;
+    content: "";
+    z-index: 1;
+    background-color: rgba(240, 86, 148, 0.3);
   }
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  /* Set the fixed height of the footer here */
-  min-height: $footerHeight;
-  background-color: #000;
+  video {
+    width: 100%;
+  }
 }
-#social-networks {
-  font-size: 28px;
-  address {
-    margin-top: 12px;
-    font-size: 12px;
-    color: #c2bebe;
-    p {
-      margin-bottom: 0;
-    }
-    a {
-      color: #c2bebe;
-      text-decoration: none;
-      &:hover {
-        color: #c2bebe;
+#change-life-link {
+  position: absolute;
+  top: 50%;
+  margin-top: -25px;
+  padding: 0 7%;
+  height: 50px;
+  z-index: 3;
+  a,
+  p {
+    line-height: 45px;
+  }
+  p {
+    height: 100%;
+    margin-bottom: 0;
+    background-color: rgba(0, 0, 0, 0.46);
+  }
+  a {
+    display: block;
+    height: 100%;
+    float: right;
+    background-color: #d61043;
+    color: #fff;
+    font-size: 21px;
+    font-weight: 100;
+    &:hover {
+      background: rgba(171, 5, 53, 0.7);
+      &:after {
+        border-left-color: rgba(171, 5, 53, 0.7);
       }
     }
+    &:after {
+      width: 0;
+      content: "";
+      height: 0;
+      position: absolute;
+      top: 0;
+      right: -23px;
+      display: block;
+      border-top: 25px solid transparent;
+      border-bottom: 25px solid transparent;
+      border-left: 23px solid #d61043;
+    }
   }
-  h5 {
+}
+//show page
+.page-title-show {
+  h2 {
+    color: $pink-color;
+    font-size: 3.6vw;
     margin-top: 0;
-    line-height: 12px;
+    margin-bottom: 30px;
+    small {
+      color: $pink-color;
+    }
+  }
+  .lead {
+    font-size: 2.1vw;
+    color: #fff;
     margin-bottom: 0;
   }
 }
-// .background-video { 
-//   position: fixed;
-//   top: 50%;
-//   left: 50%;
-//   min-width: 100%;
-//   min-height: 100%;
-//   width: auto;
-//   height: auto;
-//   z-index: -100;
-//   transform: translate(-50%, -50%);
-// }
+.page-show-title-buttons {
+  h3 {
+    margin-top: 0px;
+    span {
+      text-transform: uppercase;
+    }
+  }
+  button {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}
+#show-content {
+  >.row {
+    padding-left: 6%;
+    padding-right: 6%;
+  }
+  .last-section {
+    .color-pink.text-center {
+      font-size: 18px;
+      margin-top: 10px;
+    }
+    .lead {
+      font-size: 32px;
+    }
+  }
+  
+}
+#carousel-show-main {
+  .carousel-inner {
+    > .item > img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+.artist {
+  text-align: center;
+  margin-top: 30px;
+  img {
+    border: 2px solid $pink-color;
+    width: 100%;
+  }
+  button {
+    margin: 0 auto;
+    padding: 0 15px;
+    font-weight: 100;
+    font-size: 18px;
+  }
+  h4 {
+    font-weight: 300;
+    margin-top: 25px;
+    margin-bottom: 15px;
+  }
+}
+
+
 
 /* ==========================================================================
 Media Queries
@@ -382,6 +488,17 @@ Media Queries
   html {
     font-size: 16px;
   }
+  // .artist-container {
+  //   .col-md-3,
+  //   .col-md-5 {
+  //     padding-left: 5px;
+  //     padding-right: 5px;
+  //   }
+  // }
+  // .artist-container.col-md-8 {
+  //   padding-left: 0;
+  //   padding-right: 0;
+  // }
 }
 
 /* 992px and smaller */
@@ -390,7 +507,22 @@ Media Queries
 
 /* 992px and bigger */
 
-@media (min-width: $screen-md-min) {}
+@media (min-width: $screen-md-min) {
+  // .artist-container {
+  //   .col-md-3 {
+  //     padding-left: 5px;
+  //     padding-right: 5px;
+  //   }
+  //   .col-md-5 {
+  //     padding-left: 0px;
+  //     padding-right: 0px;
+  //   }
+  // }
+  // .artist-container.col-sm-12 {
+  //   padding-left: 0px;
+  //   padding-right: 0px;
+  // }
+}
 
 /* 992px to 1199px */
 

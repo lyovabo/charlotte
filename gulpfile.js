@@ -17,7 +17,7 @@ gulp.task('watch', ['sass', 'browserSync'], function() {
   gulp.watch('sass/**/*.scss', ['sass']);
   gulp.watch('sass/*.scss', ['sass']);
   gulp.watch('sass/**/*.scss', browserSync.reload);
-  gulp.watch('index.html', browserSync.reload);
+  gulp.watch('*.html', browserSync.reload);
 
 
 })
@@ -48,7 +48,8 @@ gulp.task('sass', function() {
 gulp.task('browserSync', function() {
   browserSync.init({
     server: {
-      baseDir: './'
+      baseDir: './',
+      index: 'show.html'
     }
   });
 });
