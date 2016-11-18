@@ -29,11 +29,27 @@ $retina-media-query: "only screen and (-webkit-min-device-pixel-ratio: 2)," + "o
   background-image: url(https://static.parastorage.com/services/skins/2.1229.56/images/wysiwyg/core/themes/base/shiny1button_bg.png);
   background-position: 50% 50%;
   background-repeat: repeat-x;
-  border-size: 0px;
+  border: 0 none;
   border-radius: $btn-border-radius-large;
   &:hover {
     background-color: rgba(237, 7, 99, 0.7);
   }
+}
+.primary-text {
+  color: $pink-color;
+}
+.text-left {
+  text-align: left;
+
+}
+.f-s-4 {
+  font-size: 4vw;
+}
+.f-s-18 {
+  font-size: 18px;
+}
+.text-white {
+  color: #fff;
 }
 .background-video {
   position: fixed;
@@ -47,11 +63,51 @@ $retina-media-query: "only screen and (-webkit-min-device-pixel-ratio: 2)," + "o
   z-index: -100;
   transform: translate(-50%, -50%);
 }
-.margin-bottom-section {
+.m-b-0 {
+  margin-bottom: 0px!important;
+}
+.m-b-5 {
+  margin-bottom: 5px!important;
+}
+.m-b-10 {
+  margin-bottom: 10px;
+}
+
+.m-b-20 {
   margin-bottom: 20px;
 }
-.margin-top-section {
+.m-b-30 {
+  margin-bottom: 30px;
+}
+.m-b-40 {
+  margin-bottom: 40px;
+}
+.m-b-60 {
+  margin-bottom: 60px;
+}
+.m-b-80 {
+  margin-bottom: 80px;
+}
+.m-b-100 {
+  margin-bottom: 100px;
+}
+.m-b-140 {
+  margin-bottom: 140px;
+}
+.m-b-300 {
+  margin-bottom: 300px;
+}
+.m-t-20 {
   margin-top: 20px;
+}
+.m-t-40 {
+  margin-top: 40px;
+}
+.p-t-30 {
+  padding-top: 30px;
+}
+.inline-block {
+  display: inline-block;
 }
 .margin-auto {
   margin-left: auto;
@@ -63,11 +119,17 @@ $retina-media-query: "only screen and (-webkit-min-device-pixel-ratio: 2)," + "o
 .full-width {
   width: 100%;
 }
-.display-block {
-  display: block;
-}
-.color-pink {
+.text-primary {
   color: $pink-color;
+}
+.text-underline {
+  text-decoration: underline;
+}
+.l-h-20 {
+  line-height: 20px;
+}
+.color-black {
+  color: #000;
 }
 /* Sticky footer styles
 -------------------------------------------------- */
@@ -95,8 +157,8 @@ body {
   background-color: #000;
 }
 #footer > .container {
-  padding-right: 15px;
-  padding-left: 15px;
+  // padding-right: 15px;
+  // padding-left: 15px;
 }
 #social-networks {
   font-size: 28px;
@@ -138,25 +200,25 @@ code {
 /*header*/
 
 .icon-flag-rus {
+  float: right;
+  background-image: url('../img/icons/flag_ru.png');
+}
+.icon-flag-eng {
+  float: right;
+  background-image: url('../img/icons/flag_eng.gif');
+  background-position: 0%;
+
+}
+.icon-flag {
   display: block;
   width: 24px;
   height: 24px;
-  float: right;
-  background-image: url('../img/icons/flag_ru.png');
   background-repeat: no-repeat;
 }
 .languages {
   width: 62px;
   &:hover {
     cursor: pointer;
-  }
-  .language-name {
-    display: block;
-    height: 100%;
-    float: left;
-    color: #fff;
-    text-transform: uppercase;
-    line-height: 22px;
   }
 }
 .logo {
@@ -198,14 +260,32 @@ code {
     }
   }
 }
+.navbar-nav {
+  li.dropdown {
+    &:hover {
+       ul.dropdown-menu {
+        display: block;
+      }
+    }
+  }
+}
+
+
 //end header
 //homepage
-#carousel-homepage {
+#carousel-homepage-1 {
+  .icon-prev, .icon-next {
+      font-size: 10vw;
+      margin-top: -5vw; 
+    }
   .carousel-inner {
     > .item > img {
       width: 100%;
       height: 100%;
     }
+    
+      
+    
     .carousel-caption {
       border: 1px solid white;
       width: 30%;
@@ -224,7 +304,8 @@ code {
         border-color: rgba(255, 255, 255, 1);
         transition: border-color 0.4s ease 0s, background-color 0.4s ease 0s;
       }
-      div {
+
+      .text {
         width: 70%;
         height: 40%;
         margin-bottom: 20px;
@@ -259,10 +340,10 @@ code {
     position: absolute;
     top: 44%;
   }
-  .left {
+  .left-arrow {
     left: 3%;
   }
-  .right {
+  .right-arrow {
     right: 3%;
     transform: scale(-1);
   }
@@ -299,6 +380,7 @@ code {
   a,
   p {
     line-height: 45px;
+    font-size: 2.4vw;
   }
   p {
     height: 100%;
@@ -311,7 +393,6 @@ code {
     float: right;
     background-color: #d61043;
     color: #fff;
-    font-size: 21px;
     font-weight: 100;
     &:hover {
       background: rgba(171, 5, 53, 0.7);
@@ -320,9 +401,7 @@ code {
       }
     }
     &:after {
-      width: 0;
       content: "";
-      height: 0;
       position: absolute;
       top: 0;
       right: -23px;
@@ -337,7 +416,7 @@ code {
 .page-title-show {
   h2 {
     color: $pink-color;
-    font-size: 3.6vw;
+    font-size: 4.3vw;
     margin-top: 0;
     margin-bottom: 30px;
     small {
@@ -363,12 +442,8 @@ code {
   }
 }
 #show-content {
-  >.row {
-    padding-left: 6%;
-    padding-right: 6%;
-  }
   .last-section {
-    .color-pink.text-center {
+    .text-primary.text-center {
       font-size: 18px;
       margin-top: 10px;
     }
@@ -376,7 +451,15 @@ code {
       font-size: 32px;
     }
   }
-  
+  figure {
+    max-width: 212px;
+    margin: 0 auto 20px auto;
+    img {
+      width: 100%;
+      border: 2px solid #ed0763;
+
+    }
+  }
 }
 #carousel-show-main {
   .carousel-inner {
@@ -395,7 +478,7 @@ code {
   }
   button {
     margin: 0 auto;
-    padding: 0 15px;
+    // padding: 0 15px;
     font-weight: 100;
     font-size: 18px;
   }
@@ -405,8 +488,155 @@ code {
     margin-bottom: 15px;
   }
 }
+//end of show page
+//special page
+.car-st {
+  .icon-prev, .icon-next {
+      font-size: 10vw;
+      margin-top: -5vw; 
+    }
+  .item {
+    
+      img {
+        margin: 0 auto;
+        // width: 100%;
+      }
+  }
+}
+#carousel-posters {
+    .icon-prev, .icon-next {
+      font-size: 10vw;
+      margin-top: -5vw; 
 
+    }
+    .icon-prev {
+      left: 25px;
+    }
+    .icon-next {
+      right: 25px;
+    }
 
+  .item {
+    background-color: #353535;
+    padding-top: 20px;
+    padding-bottom: 40px;
+    padding-left: 80px;
+    padding-right: 80px;
+    overflow: hidden;
+    clear: both;
+    a {
+      float: left;
+      display: inline-block;
+      padding: 10px;
+      background: $pink-color;
+    } 
+    img {
+      width: 100%;
+    }
+  }
+  
+  .carousel-indicators {
+    bottom: 0;
+  }
+
+}
+.line {
+  border-bottom: 1px solid #fff;
+  height: 1px;
+  padding-top: 20px;
+}
+//strip page
+#carousel-strip {
+  img {
+    margin: 0 auto;
+  }
+}
+//vip page
+#carousel-vip {
+  margin-bottom: 70px;
+  .item {
+    max-height: 400px;
+    overflow: hidden;
+    .bg-item {
+      background-size: contain;
+      max-width: 720px;
+      width: 100%;
+      min-height: 400px;
+      height: 100%;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+  }
+  .carousel-indicators {
+    width: 100%;
+    left: 0;
+    margin-left: 0;
+    max-height: 50px; 
+    height: 100%;
+    bottom: -70px;
+    li {
+      // max-width: 88px;
+      max-height: 50px;
+      width: 13%;
+      margin-right: 1%;
+      height: 100%;
+      float: left;
+      border: 0;
+      border-radius: 0;
+      
+    }
+  }
+}
+.btn-black {
+  background-color: #000;
+  border: 1px solid #fff;
+  padding: 8px 40px 8px 40px; 
+  &:hover {
+    color: #000;
+    background-color: #fff;
+    border-color: #fff;
+    transition: all 0.5s;
+  }
+  &:active,&:focus {
+    color: #000;
+  }
+}
+//events page
+#events-content {
+  .text-primary.text-center.f-s-18 {
+    line-height: 36px;
+  }
+}
+#carousel-events-header {
+  .carousel-inner{
+    background-color: #000;
+  }
+  .carousel-indicators {
+    bottom: -4px;
+  }
+}
+.carousel.events {
+  img {
+    max-width: 825px;
+    width: 100%;
+  }
+} 
+.kwicks {
+  width: 100%;
+  min-height: 320px;
+  height: 100%;
+
+  a {
+    // height: 100px;
+    /* overridden by kwicks but good for when JavaScript is disabled */
+    // width: 125px;
+    margin-left: 5px;
+    // float: left;
+    img {
+      // max-width: 00px;
+    }
+  }
+}
 
 /* ==========================================================================
 Media Queries
@@ -468,6 +698,27 @@ Media Queries
     font-size: 14px;
     line-height: 1.57142;
   }
+  .logo.with-caption:after {
+    display: none;
+  }
+  .page-title-show {
+    text-align: center;
+    h2 {
+      font-size: 7.6vw;
+    }
+    .lead {
+      font-size: 4.1vw;
+    }
+  }
+  .page-show-title-buttons {
+    .pull-right {
+      margin-top: 20px;
+      float: none!important;
+      h3 {
+        text-align: center;
+      }
+    }
+  }
 }
 
 /* 768px and bigger */
@@ -488,17 +739,7 @@ Media Queries
   html {
     font-size: 16px;
   }
-  // .artist-container {
-  //   .col-md-3,
-  //   .col-md-5 {
-  //     padding-left: 5px;
-  //     padding-right: 5px;
-  //   }
-  // }
-  // .artist-container.col-md-8 {
-  //   padding-left: 0;
-  //   padding-right: 0;
-  // }
+
 }
 
 /* 992px and smaller */
@@ -508,20 +749,7 @@ Media Queries
 /* 992px and bigger */
 
 @media (min-width: $screen-md-min) {
-  // .artist-container {
-  //   .col-md-3 {
-  //     padding-left: 5px;
-  //     padding-right: 5px;
-  //   }
-  //   .col-md-5 {
-  //     padding-left: 0px;
-  //     padding-right: 0px;
-  //   }
-  // }
-  // .artist-container.col-sm-12 {
-  //   padding-left: 0px;
-  //   padding-right: 0px;
-  // }
+
 }
 
 /* 992px to 1199px */

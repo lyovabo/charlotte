@@ -7,6 +7,51 @@
 .carousel {
   position: relative;
 }
+.carousel-fade {
+  img {
+    left: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    max-width: none;
+    width: auto;
+    height: auto;
+  }
+  & i {
+    position: absolute;
+    top: 50%;
+  }
+
+  .carousel-inner {
+    .item {
+      opacity: 0;
+      transition-property: opacity;
+      // transition-delay: 2s;
+    }
+
+    .active {
+      opacity: 1;
+    }
+
+    .active.left,
+    .active.right {
+      left: 0;
+      opacity: 0;
+      z-index: 1;
+    }
+
+    .next.left,
+    .prev.right {
+      opacity: 1;
+    }
+  }
+
+  .carousel-control {
+    z-index: 2;
+  }
+}
+
+
 
 .carousel-inner {
   position: relative;
@@ -16,7 +61,7 @@
   > .item {
     display: none;
     position: relative;
-    @include transition(.6s ease-in-out left);
+    @include transition(3.6s ease-in-out left);
 
     // Account for jankitude on images
     > img,

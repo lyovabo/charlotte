@@ -15,89 +15,22 @@
   <link href="assets/css/style.css" rel="stylesheet" />
 </head>
 
-<body>
-  <!-- Fixed navbar -->
-  <nav class="navbar navbar-default navbar-inverse " role="navigation">
-    <div class="container">
-      <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse" type="button">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand logo with-caption" id="logo" href="./" data-caption="Charlotte Cabaret">
-        Charlotte
-        <img src="/app/images/logo.png" alt="Cabaret Charoltte">
-      </a>
-      <div class="collapse navbar-collapse">
-        <a class="languages pull-right">
-          <span class="language-name">rus</span>
-          <i class="icon-flag-rus"></i>
-        </a>
-        <ul class="nav navbar-nav navbar-right">
-          <li class="active">
-            <a href="#">Home</a>
-          </li>
-          <li>
-            <a href="#about">- Show -</a>
-          </li>
-          <li>
-            <a href="#contact">V.I.P</a>
-          </li>
-          <li>
-            <a href="#contact">--Gallery--</a>
-          </li>
-          <li>
-            <a href="#contact">--Menu--</a>
-          </li>
-          <li>
-            <a href="#contact">Events</a>
-          </li>
-          <li>
-            <a href="#contact">Our History</a>
-          </li>
-          <li class="dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-              Contacts
-            </a>
-            <ul class="dropdown-menu">
-              <li>
-                <a href="#">Action</a>
-              </li>
-              <li>
-                <a href="#">Another action</a>
-              </li>
-              <li>
-                <a href="#">Something else here</a>
-              </li>
-              <li class="divider"></li>
-              <li class="dropdown-header">Nav header</li>
-              <li>
-                <a href="#">Separated link</a>
-              </li>
-              <li>
-                <a href="#">One more separated link</a>
-              </li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-      <!-- /.nav-collapse -->
-    </div>
-  </nav>
+<body ng-app="charlotte" >
+<ng-include src="'assets/js/templates/header/navbar-header.html'"></ng-include>
+  
   <!-- Begin page content -->
-  <div class="carusel-wrapper">
-    <div id="carousel-homepage" class="carousel slide" data-ride="carousel">
-      <!-- Indicators -->
+  <div class="">
+    <div id="carousel-homepage-1" class="carousel slide" data-ride="carousel" data-interval="3000">
+      
       <ol class="carousel-indicators">
-        <li data-target="#carousel-homepage" data-slide-to="0" class="active"></li>
-        <li data-target="#carousel-homepage" data-slide-to="1"></li>
-        <li data-target="#carousel-homepage" data-slide-to="2"></li>
+        <li data-target="#carousel-homepage-1" data-slide-to="0" class="active"></li>
+        <li data-target="#carousel-homepage-1" data-slide-to="1"></li>
+        <li data-target="#carousel-homepage-1" data-slide-to="2"></li>
       </ol>
-      <!-- Wrapper for slides -->
+     
       <div class="carousel-inner" role="listbox">
         <div class="item active">
-          <img src="assets/img/slides/1.jpg" alt="...">
+          <img src="assets/img/slides/1.jpg" alt="strip girl">
           <div class="carousel-caption">
             <div class="text">
               <h3>Strip</h3>
@@ -107,7 +40,7 @@
           </div>
         </div>
         <div class="item">
-          <img src="assets/img/slides/2.jpg" alt="...">
+          <img src="assets/img/slides/2.jpg" alt="strip girl">
           <div class="carousel-caption">
             <div class="text">
               <h3>Strip</h3>
@@ -117,7 +50,7 @@
           </div>
         </div>
         <div class="item">
-          <img src="assets/img/slides/3.jpg" alt="...">
+          <img src="assets/img/slides/3.jpg" alt="strip girl">
           <div class="carousel-caption">
             <div class="text">
               <h3>Strip</h3>
@@ -127,75 +60,29 @@
           </div>
         </div>
       </div>
-      <svg version="1.1" x="0px" y="0px" viewBox="0 0 21 41" class="left carousel-control svg" role="button" data-slide="prev" href="#carousel-homepage">
-        <polygon points="20.3,40.8 0,20.5 20.3,0.2 21,0.9 1.3,20.5 21,40.1 " class="glyphicon glyphicon-chevron-left">
-        </polygon>
-      </svg>
-      <svg version="1.1" x="0px" y="0px" viewBox="0 0 21 41" class="right carousel-control svg" role="button" data-slide="next" href="#carousel-homepage">
-        <polygon points="20.3,40.8 0,20.5 20.3,0.2 21,0.9 1.3,20.5 21,40.1 " class="glyphicon glyphicon-chevron-right">
-        </polygon>
-      </svg>
+  
+      <a class="left carousel-control" href="#carousel-homepage-1" role="button" data-slide="prev">
+        <span class="fa fa-chevron-left icon-prev" aria-hidden="true"></span>
+      </a>
+      <a class="right carousel-control" href="#carousel-homepage-1" role="button" data-slide="next">
+        <span class="fa fa-chevron-right icon-next" aria-hidden="true"></span>
+      </a>
     </div>
   </div>
+  
   <section id="section-fog">
     <div class="row">
-      <div id="change-life-link" class="col-md-6 col-md-offset-3">
-        <a href="./" class="col-md-2 text-center ">Here</a>
-        <p class="lead text-center col-md-10">Change your life story</p>
+      <div id="change-life-link" class="col-xs-6 col-xs-offset-3">
+        <a href="./" class="col-xs-3 text-center ">Here</a>
+        <p class="lead text-center col-xs-9">Change your life story</p>
       </div>
     </div>
     <video loop="" muted="" preload="auto" autoplay>
       <source src="http://video.wixstatic.com/video/11062b_4d1ce144268d4ffda4eb0e5d39af01d0/1080p/mp4/file.mp4">
     </video>
   </section>
-  <footer id="footer">
-    <div class="container">
-      <div class="row">
-        <!--TODO:implent google map addres point -->
-        <address class="pull-right">
-          <p>M.Baghramyan Ave
-            <br> Yerevan 0019
-            <br>
-            <a href="tel:00374 10 277020" title="Phone">(24 hrs.) +374 41 277020</a>
-            <br>
-            <a href="tel:00374 10 277020" title="Phone">+374 10 277020</a>
-            <br>
-            <a href="mailto:info@charlotte.am">info@charlotte.am</a>
-          </p>
-        </address>
-        <div id="social-networks">
-          <ul class="list-unstyled list-inline">
-            <li>
-              <h5 class="text-logo-icon">
-                <span>show</span><br>
-                <span class="text-center">charlotte</span>
-              </h5>
-            </li>
-            <li>
-              <a href="">
-                <i class="fa  fa-facebook"></i>
-              </a>
-            </li>
-            <li>
-              <a href="">
-                <i class="fa  fa-google-plus"></i>
-              </a>
-            </li>
-            <li>
-              <a href="">
-                <i class="fa  fa-instagram"></i>
-              </a>
-            </li>
-            <li>
-              <a href="">
-                <i class="fa  fa-vk"></i>
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </footer>
+<ng-include src="'assets/js/templates/footer/footer.html'"></ng-include>
+ 
   <!--
     Bootstrap core JavaScript
     ==================================================
@@ -203,7 +90,7 @@
   <!-- Placed at the end of the document so the pages load faster -->
   <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script> -->
   <!-- <script src="assets/js/bootstrap.min.js"></script>   <s></s>-->
-  <script src="app/js/scripts.min.js"></script>
+  <script src="app/js/scripts.js"></script>
 </body>
 
 </html>

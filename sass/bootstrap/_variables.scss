@@ -144,9 +144,12 @@ $btn-danger-bg: $brand-danger !default;
 $btn-danger-border: darken($btn-danger-bg, 5%) !default;
 $btn-link-disabled-color: $gray-light !default;
 // Allows for customizing button radius independently from global border radius
-$btn-border-radius-base: $border-radius-base !default;
-$btn-border-radius-large: $border-radius-large !default;
-$btn-border-radius-small: $border-radius-small !default;
+$btn-border-radius-base: 0!default;
+//$border-radius-base !default;
+$btn-border-radius-large: 0!default;
+//$border-radius-large !default;
+$btn-border-radius-small: 0!default;
+//$border-radius-small !default;
 //== Forms
 //
 //##
@@ -190,7 +193,7 @@ $cursor-disabled: not-allowed !default;
 //
 //## Dropdown menu container and contents.
 //** Background for the dropdown menu.
-$dropdown-bg: #fff !default;
+$dropdown-bg: $pink-color !default;
 //** Dropdown menu `border-color`.
 $dropdown-border: rgba(0, 0, 0, .15) !default;
 //** Dropdown menu `border-color` **for IE8**.
@@ -292,7 +295,8 @@ $container-lg: $container-large-desktop !default;
 $navbar-height: 72px !default;
 // $navbar-margin-bottom:             $line-height-computed !default;
 $navbar-margin-bottom: 0 !default;
-$navbar-border-radius: $border-radius-base !default;
+$navbar-border-radius: 0 !default; 
+//$border-radius-base !default;
 $navbar-padding-horizontal: floor(($grid-gutter-width / 2)) !default;
 $navbar-padding-vertical: (($navbar-height - $line-height-computed) / 2) !default;
 $navbar-collapse-max-height: 340px !default;
@@ -340,7 +344,7 @@ $navbar-inverse-toggle-border-color: #333 !default;
 //
 //##
 //=== Shared nav styles
-$nav-link-padding: 0px 15px !default;
+$nav-link-padding: 0px 10px !default;
 $nav-link-hover-bg: $gray-lighter !default;
 $nav-disabled-link-color: $gray-light !default;
 $nav-disabled-link-hover-color: $gray-light !default;

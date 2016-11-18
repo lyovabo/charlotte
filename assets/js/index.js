@@ -1,4 +1,9 @@
-$('document').ready(function() {
-	 // $('.selectpicker').selectpicker();
-	 console.log('i was born and used :D ')
-})
+
+angular
+  .module('charlotte',[]);
+   $(function() {
+                $('.kwicks').kwicks({
+                    maxSize : 200,
+                    behavior: 'menu'
+                });
+            });
