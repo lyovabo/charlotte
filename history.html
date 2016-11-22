@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-
+<html>
 <head>
   <meta charset="utf-8" />
   <meta content="IE=edge" http-equiv="X-UA-Compatible" />
@@ -12,26 +12,26 @@
   </title>
   <link href="favicon.ico" rel="shortcut icon" />
   <link href="apple-touch-icon.png" rel="apple-touch-icon">
-  <link href="assets/css/style.css" rel="stylesheet" />
-  <link rel="stylesheet" href="assets/css/jquery.kwicks.min.css">
+  <link href="././assets/css/style.css" rel="stylesheet" />
+  <link rel="stylesheet" href="./assets/css/jquery.kwicks.min.css">
 </head>
 
 <body ng-app="charlotte">
   <!-- Fixed navbar -->
-  <ng-include src="'assets/js/templates/header/navbar-header.html'"></ng-include>
+  <ng-include src="'./assets/js/templates/header/navbar-header.html'"></ng-include>
 
   <!-- Begin page content -->
   <video loop="" muted="" preload="auto" autoplay class="background-video">
     <source src="http://video.wixstatic.com/video/11062b_cb0c4d13153f4008920bb26beda8de0f/1080p/mp4/file.mp4">
   </video>
-  <main class="container text-center">
+  <main class="container text-left" id="history">
+    <h2 class="text-primary ">Cabaret Charlotte History</h2>
     <section class="row m-b-20 text-left">
-      <div class="col-sm-6 col-sm-offset-1">
-        <h2 class="text-primary ">Cabaret Charlotte History</h2>
-        <img src="assets/img/history/history1.webp" alt="charlotte history" style="width:100%">
+      <div class="col-sm-7 ">
+        <img src="./assets/img/history/history1.webp" alt="charlotte history">
       </div>
-      <div class="col-sm-4">
-        <div class="p-t-30">
+      <div class="col-sm-5">
+        <div>
           <h3 class="text-primary">
             The club foundation
           </h3>
@@ -43,57 +43,52 @@
             Our main goal is to work on the benefit of  clients. And very soon, it created a huge and a wonderful group of clients who still prefer our club. We try to create a place where everyone will get the expectation for which they came. It is one of our highest goals.
           </p>
         </div>
-        
       </div>
-      <div class="col-sm-10 text-left col-sm-offset-1">
+      <div class="col-sm-12 text-left">
           <h3 class="text-primary">
             About the Club’s name
           </h3>
-          <p class="m-b-20 lead l-h-20">
-            <small>
+          <p class="m-b-20  l-h-20">
             Many people ask why just "Cabaret Charlotte". Well , we just wanted to represent the beauty of a french woman. And after creating this name , every customer liked and approved it .
-            </small>
           </p>
           <h3 class="text-primary">
             Charlotte SHOW
           </h3>
-          <p class="m-b-20 lead l-h-20">
-            <small>
-              Our aim is to create the best show programs in Yerevan, which include famous artists' performances, new light <br> and sound effects, which will create the warmest atmosphere ever. <br>
-              And we have already done it. The Best SHOW Club in Yerevan, even in Armenia.  The name of the Club is Cabaret Charlotte. <br>
-              An amazing place for amazing SHOW Program! 
-            </small>
+          <p class="m-b-20  l-h-20">
+            Our aim is to create the best show programs in Yerevan, which include famous artists' performances, new light <br> and sound effects, which will create the warmest atmosphere ever. <br>
+            And we have already done it. The Best SHOW Club in Yerevan, even in Armenia.  The name of the Club is Cabaret Charlotte. <br>
+            An amazing place for amazing SHOW Program! 
           </p>
          <div class='kwicks kwicks-horizontal clearfix'>
           <a href='./'>
-            <img src="assets/img/slides/history/history1.jpg" alt="">
+            <img src="./assets/img/slides/history/history1.jpg" alt="Charlotte Strip">
           </a>
           <a href='./'>
-            <img src="assets/img/slides/history/history2.jpg" alt="">
+            <img src="./assets/img/slides/history/history2.jpg" alt="Charlotte Strip">
           </a>
           <a href='./'>
-            <img src="assets/img/slides/history/history3.jpg" alt="">
+            <img src="./assets/img/slides/history/history3.jpg" alt="Charlotte Strip">
           </a>
           <a href='./'>
-            <img src="assets/img/slides/history/history4.jpg" alt="">
+            <img src="./assets/img/slides/history/history4.jpg" alt="Charlotte Strip">
           </a>
           <a href='./'>
-            <img src="assets/img/slides/history/history5.jpg" alt="">
+            <img src="./assets/img/slides/history/history5.jpg" alt="Charlotte Strip">
           </a>
           <a href='./'>
-            <img src="assets/img/slides/history/history6.jpg" alt="">
+            <img src="./assets/img/slides/history/history6.jpg" alt="Charlotte Strip">
           </a>
           <a href='./'>
-            <img src="assets/img/slides/history/history7.jpg" alt="">
+            <img src="./assets/img/slides/history/history7.jpg" alt="Charlotte Strip">
           </a>
           <a href='./'>
-            <img src="assets/img/slides/history/history8.jpg" alt="">
+            <img src="./assets/img/slides/history/history8.jpg" alt="Charlotte Strip">
           </a>
           <a href='./'>
-            <img src="assets/img/slides/history/history9.jpg" alt="">
+            <img src="./assets/img/slides/history/history9.jpg" alt="Charlotte Strip">
           </a>
           <a href='./'>
-            <img src="assets/img/slides/history/history10.jpg" alt="">
+            <img src="./assets/img/slides/history/history10.jpg" alt="Charlotte Strip">
           </a>
         </div>
         </div>
@@ -103,7 +98,7 @@
 
   
   </main>
-<ng-include src="'assets/js/templates/footer/footer.html'"></ng-include>
+<ng-include src="'./assets/js/templates/footer/footer.html'"></ng-include>
 
   <script src="app/js/scripts.min.js"></script>
 </body>

@@ -114,6 +114,9 @@ output {
 .form-control {
   display: block;
   width: 100%;
+  margin: 0 0 5px;
+  padding: 5px;
+  font-size: 16px;
   height: $input-height-base; // Make inputs at least the height of their button counterpart (base line-height + padding + border)
   padding: $padding-base-vertical $padding-base-horizontal;
   font-size: $font-size-base;

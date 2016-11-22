@@ -138,7 +138,7 @@
 
 // Brand/project name
 .navbar-brand {
-  float: left;
+  // float: left;
   padding: 0 $navbar-padding-horizontal;
   font-size: $font-size-large;
   line-height: $line-height-computed;
@@ -407,7 +407,8 @@
       // Dropdowns get custom display when collapsed
       .open .dropdown-menu {
         > li > a {
-          color: $navbar-default-link-color;
+          color: #fff; 
+          // $navbar-default-link-color;
           &:hover,
           &:focus {
             color: $navbar-default-link-hover-color;
@@ -534,7 +535,8 @@
           background-color: $navbar-inverse-border;
         }
         > li > a {
-          color: $navbar-inverse-link-color;
+          color: #fff;
+          // $navbar-inverse-link-color;
           &:hover,
           &:focus {
             color: $navbar-inverse-link-hover-color;

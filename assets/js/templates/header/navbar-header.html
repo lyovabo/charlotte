@@ -1,4 +1,4 @@
-  <nav class="navbar navbar-default navbar-inverse " role="navigation">
+  <nav class="navbar navbar-default navbar-inverse">
     <div class="container">
       <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse" type="button">
         <span class="sr-only">Toggle navigation</span>
@@ -6,55 +6,86 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand logo with-caption" id="logo" href="./" data-caption="Charlotte Cabaret">
+      <a class="navbar-brand pull-left logo with-caption" id="logo" href="./" data-caption="Charlotte Cabaret">
         Charlotte
-        <img src="/app/images/logo.png" alt="Cabaret Charoltte">
+        <img src="./app/images/logo.png" alt="Cabaret Charoltte">
       </a>
       <div class="collapse navbar-collapse">
-        <a class="languages pull-right">
-          <i class="icon-flag icon-flag-rus"></i>
-        </a>
-        <a class="languages pull-right ">
-          <i class="icon-flag icon-flag-eng"></i>
-        </a>
-        <ul class="nav navbar-nav navbar-left">
+
+        <ul class="list-inline list-unstyled text-right">
+          <li>
+            <a href="#rus">
+              <i class="icon-flag icon-flag-rus"></i>
+            </a>
+          </li>
+          <li>
+            <a href="#eng">
+              <i class="icon-flag icon-flag-eng"></i>
+            </a>
+          </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
           <li class="active">
-            <a href="#">Home</a>
+            <a href="./index.html">Home</a>
           </li>
           <li class="dropdown">
-            <a href="#about" class="dropdown dropdown-toggle " data-toggle="dropdown" href="#">- Show -</a>
+            <a class="dropdown dropdown-toggle " href="./show.html">- Show -</a>
             <ul class="dropdown-menu">
               <li>
-                <a href="#">Special</a>
+                <a href="./special.html">Special</a>
               </li>
               <li>
-                <a href="#">Posters</a>
+                <a href="./posters.html">Posters</a>
               </li>
             </ul>
           </li>
            <li>
-            <a href="#contact">Strip</a>
+            <a href="./strip.html">Strip</a>
           </li>
           <li>
-            <a href="#contact">V.I.P</a>
-          </li>
-          <li>
-            <a href="#contact">--Gallery--</a>
-          </li>
-          <li>
-            <a href="#contact">--Menu--</a>
-          </li>
-          <li>
-            <a href="#contact">Events</a>
-          </li>
-          <li>
-            <a href="#contact">Our History</a>
+            <a href="./vip.html">V.I.P</a>
           </li>
           <li class="dropdown">
-            <a class="dropdown-toggle dropdown" data-toggle="dropdown" href="#">
+            <a  class="dropdown dropdown-toggle" href="./gallery.html">--Gallery--</a>
+             <ul class="dropdown-menu">
+              <li>
+                <a href="./gallery.html">Show</a>
+              </li>
+              <li>
+                <a href="./gallery-strip.html">Strip</a>
+              </li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a class="dropdown dropdown-toggle " href="./menu.html">--Menu--</a>
+            <ul class="dropdown-menu">
+              <li>
+                <a href="./menu.html">Standard</a>
+              </li>
+              <li>
+                <a href="./menu-crazy.html">Crazy</a>
+              </li>
+              <li>
+                <a href="./menu-nargile.html">Nargile</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="./events.html">Events</a>
+          </li>
+          <li>
+            <a href="./history.html">Our History</a>
+          </li>
+          <li class="dropdown">
+            <a  class="dropdown dropdown-toggle" href="./contact-us.html">
               Contacts
             </a>
-            
+             <ul class="dropdown-menu">
+              <li>
+                <a href="./career.html">Career</a>
+              </li>
+              
+            </ul>
           </li>
         </ul>
       </div>

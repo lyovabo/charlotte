@@ -33,8 +33,10 @@ gulp.task('prettycss', function() {
     .pipe(gulp.dest('./'));
 });
 gulp.task('scripts', function() {
-  return gulp.src(['assets/js/angular.min.js','assets/js/jquery-3.1.1.min.js', 
-                   'assets/js/bootstrap.min.js','assets/js/jquery.kwicks.min.js', 'assets/js/index.js'])
+  return gulp.src(['assets/js/angular.min.js','assets/js/jquery-1.9.1.js',
+                   'assets/js/bootstrap.min.js','assets/js/jquery.kwicks.min.js',
+                   'assets/js/jquery.justifyGallery.js','assets/js/bootstrap-gallery.min.js',
+                   'assets/js/jquery.cloud9carousel.js','assets/js/index.js'])
     .pipe(concat('scripts.js'))
     .pipe(gulp.dest('app/js'))
     .pipe(rename('scripts.min.js'))
@@ -51,7 +53,7 @@ gulp.task('browserSync', function() {
   browserSync.init({
     server: {
       baseDir: './',
-      index: 'history.html'
+      index: 'index.html'
     }
   });
 });
