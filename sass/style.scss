@@ -229,12 +229,7 @@ code {
           margin: 0px;
           color: #000;
           font-weight: 500;
-          text-shadow: #c8c8c8 1px 1px 0px,
-                       #b4b4b4 0px 2px 0px,
-                       #a0a0a0 0px 3px 0px, 
-                       rgba(140, 140, 140, 0.498039) 0px 4px 0px,
-                       #787878 0px 0px 0px,
-                       rgba(0, 0, 0, 0.498039) 0px 5px 10px;
+          text-shadow: #c8c8c8 1px 1px 0px, #b4b4b4 0px 2px 0px, #a0a0a0 0px 3px 0px, rgba(140, 140, 140, 0.498039) 0px 4px 0px, #787878 0px 0px 0px, rgba(0, 0, 0, 0.498039) 0px 5px 10px;
         }
       }
       a {
@@ -267,9 +262,6 @@ code {
   }
 }
 #section-fog {
-  background-image: url('../img/fog.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
   position: relative;
   height: 220px;
   overflow: hidden;
@@ -369,11 +361,11 @@ code {
       border: 2px solid #ed0763;
     }
   }
-
 }
 .line {
   position: relative;
-  &:before,&:after {
+  &:before,
+  &:after {
     display: block;
     position: absolute;
     height: 1px;
@@ -418,6 +410,7 @@ code {
 //end of show page
 //special page
 .car-st {
+  clear: both;
   .icon-prev,
   .icon-next {
     font-size: 10vw;
@@ -457,7 +450,6 @@ code {
     bottom: 0;
   }
 }
-
 //strip page
 #carousel-strip {
   img {
@@ -471,7 +463,7 @@ code {
     max-height: 400px;
     overflow: hidden;
     .bg-item {
-      background-size: contain;
+      background-size: cover;
       max-width: 720px;
       margin: 0 auto;
       min-height: 400px;
@@ -527,22 +519,29 @@ code {
       margin-bottom: 0;
     }
   }
+  .carousel-control {
+    width: 5%;
+  }
+
 }
 #carousel-events-header {
   margin-bottom: 200px;
+
   .carousel-inner {
+    min-height: 240px;
     background-color: #000;
   }
   .carousel-indicators {
     bottom: -4px;
   }
-  .left { 
+
+  .left {
     span {
       left: 15%;
-    } 
+    }
   }
   .right {
-      span {
+    span {
       right: 15%;
     }
   }
@@ -551,22 +550,13 @@ code {
   img {
     max-width: 825px;
     width: 100%;
+
   }
 }
 .kwicks {
   width: 100%;
   min-height: 320px;
   height: 100%;
-  a {
-    // height: 100px;
-    /* overridden by kwicks but good for when JavaScript is disabled */
-    // width: 125px;
-    margin-left: 5px;
-    // float: left;
-    img {
-      // max-width: 00px;
-    }
-  }
 }
 //gallery
 #slider-gallery {
@@ -575,8 +565,11 @@ code {
   margin-left: auto;
   margin-right: auto;
 }
+#strip-gallery {
+  height: 300px;
+}
 #history {
-  img {
+  div > img {
     width: 100%;
   }
 }
@@ -681,6 +674,12 @@ code {
 #map {
   height: 322px;
 }
+#carousel-info {
+  img {
+    margin: 0 auto;
+  }
+}
+
 /* ==========================================================================
 Media Queries
 ========================================================================== */
@@ -766,10 +765,7 @@ Media Queries
   #social-networks {
     margin: 0 auto;
   }
-
-
 }
-
 
 /* 768px and bigger */
 
@@ -795,13 +791,19 @@ Media Queries
     font-size: 17px;
   }
   body {
-    margin-bottom: 155px;
+    margin-bottom: 180px;
   }
   footer {
     .text-right {
       text-align: center;
     }
   }
+  .car-i-wrap {
+    float: left;
+    margin-right: 40px;
+    width: 40%;
+  }
+
 }
 
 /* 768px to 991px */
@@ -809,6 +811,11 @@ Media Queries
 @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
   html {
     font-size: 16px;
+  }
+   .car-i-wrap {
+    float: left;
+    margin-right: 40px;
+    width: 40%;
   }
 }
 

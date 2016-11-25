@@ -1,0 +1,40 @@
+<main class="container " id="contact-us" ng-controller="InformationCtrl">
+  <h2 class="text-primary m-b-20 ">  Information about {{singer.firstName}}</h2>
+  <div class="car-i-wrap m-b-20 col-md-6">
+      <div id="carousel-info" class="carousel slide" data-ride="carousel">
+      <div class="carousel-inner" role="listbox">
+        <div  ng-repeat="n in [].constructor(singer.imagesCount) track by $index " ng-class="($index==0)?'item active':'item'" >
+          <img src="assets/img/singers/{{singer.firstName.toLowerCase()+'/'+($index+1)}}.webp" alt="strip club">
+        </div>
+      </div>
+       <a class="left carousel-control" href="#carousel-info" role="button" data-slide="prev">
+          <span class="fa fa-chevron-left icon-prev" aria-hidden="true"></span>
+        </a>
+        <a class="right carousel-control" href="#carousel-info" role="button" data-slide="next">
+          <span class="fa fa-chevron-right icon-next" aria-hidden="true"></span>
+        </a>
+    </div>
+  </div>
+  <div class="col-md-6">
+      <div>
+        <h3 class="text-primary">
+            {{singer.firstName+' '+singer.lastName}}
+        </h3>
+        <p class=" l-h-20 m-b-20">
+          <b>{{singer.about}}</b>
+        </p>
+      </div>
+    </div>
+    <div class="col-sm-6 col-sm-offset-3 text-center">
+      <p class="lead text-primary">
+        <b>
+          To listen to {{singer.name}}'s 
+          songs you can reserve a table
+          It will only take a few seconds.
+        </b>
+      </p>
+      <a href="./reservation" class="btn btn-primary">Reservation</a>
+    </div>
+</main>
+
+

@@ -7378,9 +7378,6 @@ code {
   transform: scale(-1); }
 
 #section-fog {
-  background-image: url("../img/fog.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
   position: relative;
   height: 220px;
   overflow: hidden; }
@@ -7493,13 +7490,14 @@ code {
     margin-top: 25px;
     margin-bottom: 15px; }
 
-.car-st .icon-prev,
-.car-st .icon-next {
-  font-size: 10vw;
-  margin-top: -5vw; }
-
-.car-st .item img {
-  margin: 0 auto; }
+.car-st {
+  clear: both; }
+  .car-st .icon-prev,
+  .car-st .icon-next {
+    font-size: 10vw;
+    margin-top: -5vw; }
+  .car-st .item img {
+    margin: 0 auto; }
 
 #carousel-posters .icon-prev,
 #carousel-posters .icon-next {
@@ -7535,7 +7533,7 @@ code {
     max-height: 400px;
     overflow: hidden; }
     #carousel-vip .item .bg-item {
-      background-size: contain;
+      background-size: cover;
       max-width: 720px;
       margin: 0 auto;
       min-height: 400px;
@@ -7579,10 +7577,13 @@ code {
     margin-bottom: 10px; }
     #events-content section:last-child {
       margin-bottom: 0; }
+  #events-content .carousel-control {
+    width: 5%; }
 
 #carousel-events-header {
   margin-bottom: 200px; }
   #carousel-events-header .carousel-inner {
+    min-height: 240px;
     background-color: #000; }
   #carousel-events-header .carousel-indicators {
     bottom: -4px; }
@@ -7599,9 +7600,6 @@ code {
   width: 100%;
   min-height: 320px;
   height: 100%; }
-  .kwicks a {
-    /* overridden by kwicks but good for when JavaScript is disabled */
-    margin-left: 5px; }
 
 #slider-gallery {
   min-height: 430px;
@@ -7609,7 +7607,10 @@ code {
   margin-left: auto;
   margin-right: auto; }
 
-#history img {
+#strip-gallery {
+  height: 300px; }
+
+#history div > img {
   width: 100%; }
 
 .has-decorations {
@@ -7687,6 +7688,9 @@ code {
 #map {
   height: 322px; }
 
+#carousel-info img {
+  margin: 0 auto; }
+
 /* ==========================================================================
 Media Queries
 ========================================================================== */
@@ -7759,14 +7763,22 @@ Media Queries
   html {
     font-size: 17px; }
   body {
-    margin-bottom: 155px; }
+    margin-bottom: 180px; }
   footer .text-right {
-    text-align: center; } }
+    text-align: center; }
+  .car-i-wrap {
+    float: left;
+    margin-right: 40px;
+    width: 40%; } }
 
 /* 768px to 991px */
 @media (min-width: 768px) and (max-width: 991px) {
   html {
-    font-size: 16px; } }
+    font-size: 16px; }
+  .car-i-wrap {
+    float: left;
+    margin-right: 40px;
+    width: 40%; } }
 
 /* 992px and smaller */
 /* 992px and bigger */
