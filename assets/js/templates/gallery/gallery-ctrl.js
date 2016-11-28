@@ -6,6 +6,7 @@ function galleryCtrl() {
     autoPlay: 1,
     bringToFront: true
   });
+
   $(".tiles").tilesGallery({
     tileMinHeight: 100,
     callback: function () {

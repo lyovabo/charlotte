@@ -26,7 +26,7 @@ module.config(function($routeProvider, $locationProvider, $qProvider) {
       templateUrl: templatesPath+'/controller-free/vip-content.html'
     })
     .when('/gallery', {
-      templateUrl: templatesPath+'/gallery/gallery-content.html'
+      templateUrl: templatesPath+'/gallery/gallery-content.html',
     })
     .when('/strip-gallery', {
       templateUrl: templatesPath+'/gallery-strip/gallery-strip-content.html'
@@ -45,6 +45,7 @@ module.config(function($routeProvider, $locationProvider, $qProvider) {
     })
     .when('/history', {
       templateUrl: templatesPath+'/history/history-content.html',
+      controller: 'HistoryCtrl'
       
     })
     .when('/contact-us', {
@@ -57,7 +58,7 @@ module.config(function($routeProvider, $locationProvider, $qProvider) {
     })
     .when('/show/:singer',{
       templateUrl: templatesPath+'/information/information-content.html',
-      controller: "InformationCtrl"
+      
     })
     .when('/reservation', {
       templateUrl: templatesPath+'/controller-free/reservation-content.html'

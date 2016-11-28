@@ -7352,14 +7352,14 @@ code {
       color: #000;
       font-weight: 500;
       text-shadow: #c8c8c8 1px 1px 0px, #b4b4b4 0px 2px 0px, #a0a0a0 0px 3px 0px, rgba(140, 140, 140, 0.498039) 0px 4px 0px, #787878 0px 0px 0px, rgba(0, 0, 0, 0.498039) 0px 5px 10px; }
-  #carousel-homepage-1 .carousel-inner .carousel-caption a {
+  #carousel-homepage-1 .carousel-inner .carousel-caption span {
     display: flex;
     width: 50%;
     color: #fff;
     align-items: center;
     justify-content: center;
     height: 45px; }
-    #carousel-homepage-1 .carousel-inner .carousel-caption a:hover {
+    #carousel-homepage-1 .carousel-inner .carousel-caption span:hover {
       text-decoration: none; }
 
 #carousel-homepage-1 .svg {
@@ -7726,13 +7726,20 @@ Media Queries
 /* 480px and smaller */
 @media (max-width: 480px) {
   html {
-    font-size: 16.5px; } }
+    font-size: 16.5px; }
+  .has-decorations {
+    min-height: 10px; }
+    .has-decorations:before, .has-decorations:after {
+      background-image: none; }
+  .menu-fruits img {
+    width: 100%; } }
 
 /* 768px and smaller */
 @media (max-width: 767px) {
   body {
     font-size: 14px;
-    line-height: 1.57142; }
+    line-height: 1.57142;
+    margin-bottom: 170px; }
   .logo.with-caption:after {
     display: none; }
   .page-title-show {
@@ -7746,8 +7753,21 @@ Media Queries
     float: none !important; }
     .page-show-title-buttons .pull-right h3 {
       text-align: center; }
+  .dropdown-menu {
+    float: none !important;
+    position: static; }
+  #carousel-homepage-1 .carousel-inner .carousel-caption .text h2 {
+    font-size: 4vw; }
+  #carousel-homepage-1 .carousel-inner .carousel-caption a {
+    font-size: 2.5vw; }
   #social-networks {
-    margin: 0 auto; } }
+    margin: 0 auto; }
+  .carousel {
+    margin-bottom: 24px; }
+  #slider-gallery, #strip-gallery {
+    display: none; }
+  footer .text-right {
+    text-align: center; } }
 
 /* 768px and bigger */
 @media (min-width: 768px) {
@@ -7762,10 +7782,6 @@ Media Queries
 @media (min-width: 480px) and (max-width: 767px) {
   html {
     font-size: 17px; }
-  body {
-    margin-bottom: 180px; }
-  footer .text-right {
-    text-align: center; }
   .car-i-wrap {
     float: left;
     margin-right: 40px;

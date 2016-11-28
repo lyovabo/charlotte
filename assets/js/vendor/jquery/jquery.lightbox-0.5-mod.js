@@ -31,11 +31,11 @@
 			// Configuration related to navigation
 			fixedNavigation:		false,		// (boolean) Boolean that informs if the navigation (next and prev button) will be fixed or not in the interface.
 			// Configuration related to images
-			imageLoading:			'_css/_imgages/lightbox-ico-loading.gif',		// (string) Path and the name of the loading icon
-			imageBtnPrev:			'_css/_images/lightbox-btn-prev.gif',			// (string) Path and the name of the prev button image
-			imageBtnNext:			'_css/_images/lightbox-btn-next.gif',			// (string) Path and the name of the next button image
-			imageBtnClose:			'_css/_images/lightbox-btn-close.gif',		// (string) Path and the name of the close btn
-			imageBlank:				'_css/_images/lightbox-blank.gif',			// (string) Path and the name of a blank image (one pixel)
+			imageLoading:			'../../assets/img/lightbox/loading.gif',		// (string) Path and the name of the loading icon
+			imageBtnPrev:			'../../assets/img/lightbox/prev.png',			// (string) Path and the name of the prev button image
+			imageBtnNext:			'../../assets/img/lightbox/next.png',			// (string) Path and the name of the next button image
+			imageBtnClose:		'../../assets/img/lightbox/close.png',		// (string) Path and the name of the close btn
+			imageBlank:				'../../assets/img/lightbox/',			// (string) Path and the name of a blank image (one pixel)
 			// Configuration related to container image box
 			containerBorderSize:	10,			// (integer) If you adjust the padding in the CSS for the container, #lightbox-container-image-box, you will need to update this value
 			containerResizeSpeed:	400,		// (integer) Specify the resize duration of container image. These number are miliseconds. 400 is default.
@@ -107,7 +107,7 @@
 			$('#jquery-overlay').css({
 				backgroundColor:	settings.overlayBgColor,
 				opacity:			settings.overlayOpacity,
-				width:				arrPageSizes[0],
+				maxWidth:				arrPageSizes[0],
 				height:				arrPageSizes[1]
 			}).fadeIn();
 			// Get page scroll
@@ -132,7 +132,7 @@
 				var arrPageSizes = ___getPageSize();
 				// Style overlay and show it
 				$('#jquery-overlay').css({
-					width:		arrPageSizes[0],
+					maxWidth:		arrPageSizes[0],
 					height:		arrPageSizes[1]
 				});
 				// Get page scroll
@@ -185,7 +185,7 @@
 			var intDiffW = intCurrentWidth - intWidth;
 			var intDiffH = intCurrentHeight - intHeight;
 			// Perfomance the effect
-			$('#lightbox-container-image-box').animate({ width: intWidth, height: intHeight },settings.containerResizeSpeed,function() { _show_image(); });
+			$('#lightbox-container-image-box').animate({ maxWidth: intWidth, height: intHeight },settings.containerResizeSpeed,function() { _show_image(); });
 			if ( ( intDiffW == 0 ) && ( intDiffH == 0 ) ) {
 				if ( $.browser.msie ) {
 					___pause(250);
@@ -193,7 +193,7 @@
 					___pause(100);	
 				}
 			} 
-			$('#lightbox-container-image-data-box').css({ width: intImageWidth });
+			$('#lightbox-container-image-data-box').css({ maxWidth: intImageWidth });
 			$('#lightbox-nav-btnPrev,#lightbox-nav-btnNext').css({ height: intImageHeight + (settings.containerBorderSize * 2) });
 		};
 		/**

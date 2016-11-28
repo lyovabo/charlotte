@@ -11,6 +11,8 @@
  * @license CC Attribution-No Derivative Works 2.5 Brazil - http://creativecommons.org/licenses/by-nd/2.5/br/deed.en_US
  * @example Visit http://leandrovieira.com/projects/jquery/lightbox/ for more informations about this jQuery plugin
  */
+
+
 #jquery-overlay {
 	position: absolute;
 	top: 0;
@@ -32,17 +34,23 @@
 #lightbox-container-image-box {
 	position: relative;
 	background-color: #fff;
-	width: 250px;
-	height: 250px;
 	margin: 0 auto;
+	width: 100%!important;
+  height: 100%!important;
+  min-height: 250px;
+
+  
 }
+#lightbox-container-image-box img {
+    width: 100%;
+  }
 #lightbox-container-image { padding: 10px; }
 #lightbox-loading {
 	position: absolute;
 	top: 40%;
-	left: 0%;
+  left: 49%!important;
+ 	width: 30px!important;
 	height: 25%;
-	width: 100%;
 	text-align: center;
 	line-height: 0;
 }
