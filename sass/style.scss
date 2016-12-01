@@ -182,8 +182,23 @@ code {
     }
   }
 }
+
+.navbar .container {
+   > ul {
+    margin-top: 15px;
+  }
+}
 .navbar-nav {
+  > li > a {
+    font-weight: normal;
+    line-height: $line-height-base;
+    padding-top: 4px;
+    padding-bottom: 4px;
+  }
   li.dropdown {
+    i {
+      margin-top: 3px;
+    }
     &:hover {
       ul.dropdown-menu {
         display: block;
@@ -291,7 +306,7 @@ code {
   a,
   p {
     line-height: 45px;
-    // font-size: 2.4vw;
+    font-size: 2.4vw;
   }
   p {
     height: 100%;
@@ -514,7 +529,7 @@ code {
     line-height: 36px;
   }
   section {
-    margin-top: 300px;
+    margin-top: 160px;
     margin-bottom: 10px;
     &:last-child {
       margin-bottom: 0;
@@ -526,7 +541,7 @@ code {
 
 }
 #carousel-events-header {
-  margin-bottom: 200px;
+  margin-bottom: 160px;
 
   .carousel-inner {
     min-height: 240px;
@@ -575,7 +590,11 @@ code {
   }
 }
 //contact-us
-#contact-us {}
+#information {
+   .about {
+    overflow: hidden;
+  }
+}
 //menu standart
 .has-decorations {
   position: relative;
@@ -593,11 +612,11 @@ code {
   }
   &:before {
     left: 0;
-    background-image: url(../img/backgrounds/menu-left-bg.webp);
+    background-image: url(../img/backgrounds/menu-left-bg.webp.png);
   }
   &:after {
     right: 0;
-    background-image: url(../img/backgrounds/menu-right-bg.webp);
+    background-image: url(../img/backgrounds/menu-right-bg.webp.png);
   }
 }
 .menu-items {
@@ -777,14 +796,29 @@ Media Queries
       }
     }
   }
+  .navbar-collapse {
+    clear: both;
+    ul:first-child {
+      margin-top: 15px;
+    }
+  }
   .dropdown-menu {
     float: none!important;
     position: static;
+    border: 0 none;
+    box-shadow: none;
+    background-color: #ab0145;
+    > li a {
+
+    }
   }
   #carousel-homepage-1 {
     .carousel-inner .carousel-caption {
       .text h2 {
         font-size: 4vw;
+      }
+      span:nth-child(2) {
+        font-size: 3vw;
       }
       a {
         font-size: 2.5vw;
@@ -835,7 +869,7 @@ Media Queries
   
   .car-i-wrap {
     float: left;
-    margin-right: 40px;
+    // margin-right: 40px;
     width: 40%;
   }
   
@@ -850,7 +884,7 @@ Media Queries
   }
    .car-i-wrap {
     float: left;
-    margin-right: 40px;
+    // margin-right: 40px;
     width: 40%;
   }
 }

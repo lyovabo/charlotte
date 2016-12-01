@@ -193,7 +193,7 @@
 					___pause(100);	
 				}
 			} 
-			$('#lightbox-container-image-data-box').css({ maxWidth: intImageWidth });
+			$('#lightbox-container-image-data-box').css({ maxWidth: intImageWidth+20 });
 			$('#lightbox-nav-btnPrev,#lightbox-nav-btnNext').css({ height: intImageHeight + (settings.containerBorderSize * 2) });
 		};
 		/**

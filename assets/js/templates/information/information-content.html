@@ -1,10 +1,10 @@
-<main class="container " id="contact-us" ng-controller="InformationCtrl">
+<main class="container " id="information" ng-controller="InformationCtrl">
   <h2 class="text-primary m-b-20 ">  Information about {{singer.firstName}}</h2>
   <div class="car-i-wrap m-b-20 col-md-6">
       <div id="carousel-info" class="carousel slide" data-ride="carousel">
       <div class="carousel-inner" role="listbox">
         <div  ng-repeat="n in [].constructor(singer.imagesCount) track by $index " ng-class="($index==0)?'item active':'item'" >
-          <img src="assets/img/singers/{{singer.firstName.toLowerCase()+'/'+($index+1)}}.webp" alt="strip club">
+          <img src="assets/img/singers/{{singer.firstName.toLowerCase()+'/'+($index+1)}}.webp.jpg" alt="strip club">
         </div>
       </div>
        <a class="left carousel-control" href="#carousel-info" role="button" data-slide="prev">
@@ -15,17 +15,15 @@
         </a>
     </div>
   </div>
-  <div class="col-md-6">
-      <div>
-        <h3 class="text-primary">
-            {{singer.firstName+' '+singer.lastName}}
-        </h3>
-        <p class=" l-h-20 m-b-20">
-          <b>{{singer.about}}</b>
-        </p>
-      </div>
-    </div>
-    <div class="col-sm-6 col-sm-offset-3 text-center">
+  <div class="col-md-6 about">      
+    <h3 class="text-primary">
+        {{singer.firstName+' '+singer.lastName}}
+    </h3>
+    <p class="l-h-20 m-b-20">
+      <b>{{singer.about}}</b>
+    </p>
+  </div>
+    <div class="col-sm-6 col-sm-offset-3 text-center clearfix">
       <p class="lead text-primary">
         <b>
           To listen to {{singer.name}}'s 

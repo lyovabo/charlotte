@@ -1,5 +1,8 @@
 'use strict';
 var gulp = require('gulp'),
+  url = require("url"),
+  fs = require("fs"),
+  path = require("path"),
   autoprefixer = require('autoprefixer'),
   dedupe = require('postcss-discard-duplicates'),
   postcss = require('gulp-postcss'),
@@ -12,6 +15,13 @@ var gulp = require('gulp'),
   uglify = require('gulp-uglify'),
   imagemin = require('gulp-imagemin'),
   cache = require('gulp-cache');
+
+// The default file if the file/path is not found
+var defaultFile = "index.html"
+
+// I had to resolve to the previous folder, because this task lives inside a ./tasks folder
+// If that's not your case, just use `__dirname`
+var folder = path.resolve(__dirname, "./");
 
 gulp.task('watch', ['sass','scripts', 'browserSync'], function() {
   gulp.watch('sass/**/*.scss', ['sass']);
@@ -33,10 +43,11 @@ gulp.task('prettycss', function() {
     .pipe(gulp.dest('./'));
 });
 gulp.task('scripts', function() {
-  return gulp.src([ 'assets/js/angular.min.js','assets/js/angular-route.js','assets/js/jquery-1.9.1.js',
-                    'assets/js/bootstrap.min.js','assets/js/jquery.kwicks.min.js',
-                    'assets/js/jquery.tiles-gallery.js','assets/js/lightbox.js',
-                    'assets/js/jquery.cloud9carousel.js','assets/js/index.js'])
+  return gulp.src([ 'assets/js/vendor/jquery/jquery-1.9.1.js','assets/js/vendor/jquery/jquery.kwicks.min.js',
+                    'assets/js/vendor/jquery/jquery.tiles-gallery.js','assets/js/vendor/jquery/jquery.cloud9carousel.js',
+                    'assets/js/vendor/jquery/jquery.lightbox-0.5-mod.js','assets/js/vendor/angular/angular.min.js',
+                    'assets/js/vendor/angular/angular-route.min.js','assets/js/vendor/bootstrap.min.js','assets/js/index.js',
+                    'assets/js/templates/**/*.js','assets/js/config.js'])
     .pipe(concat('scripts.js'))
     .pipe(gulp.dest('app/js'))
     .pipe(rename('scripts.min.js'))
@@ -53,7 +64,16 @@ gulp.task('browserSync', function() {
   browserSync.init({
     server: {
       baseDir: './',
-      index: 'index.html'
+      index: 'index.html',
+      middleware: function(req, res, next) {
+        var fileName = url.parse(req.url);
+        fileName = fileName.href.split(fileName.search).join("");
+        var fileExists = fs.existsSync(folder + fileName);
+        if (!fileExists && fileName.indexOf("browser-sync-client") < 0) {
+            req.url = "/" + defaultFile;
+        }
+        return next();
+      }
     }
   });
 });
@@ -69,84 +89,3 @@ gulp.task('templates', function() {
         .pipe(embedTemplates())
         .pipe(gulp.dest('./dist'));
 });
-
-// const gulp = require('gulp'),
-//     autoprefixer = require('autoprefixer'),
-//     dedupe = require('postcss-discard-duplicates'),
-//     postcss = require('gulp-postcss'),
-//     scss = require('postcss-scss'),
-//     sass = require('gulp-sass'),
-//     browserSync = require('browser-sync').create();
-// const useref = require('gulp-useref'),
-//     uglify = require('gulp-uglify'),
-//     gulpIf = require('gulp-if'),
-//     cssnano = require('gulp-cssnano'),
-//     imagemin = require('gulp-imagemin'),
-//     cache = require('gulp-cache'),
-//     del = require('del'),
-//     runSequence = require('run-sequence'),
-//     cssComb = require('gulp-csscomb');
-
-// gulp.task('default', ['watch']);
-// gulp.task('build', function(callback) {
-//     runSequence('clean:dist', ['sass', 'useref', 'images', 'fonts'],
-//         callback
-//     );
-// });
-// gulp.task('watch', ['browserSync', 'prettycss', 'sass'], function() {
-//     gulp.watch('sass/style.scss', ['sass']);
-//     gulp.watch('templates/*.php', browserSync.reload);
-//     gulp.watch('*.html', browserSync.reload);
-//     gulp.watch('templates/*.php', browserSync.reload);
-//     // gulp.watch('app/js/**/*.js', browserSync.reload);
-
-// });
-// gulp.task('prettycss', function() {
-//     return gulp.src(['sass/**/*.scss', '!sass/bootstrap/*'], { base: './' })
-//         .pipe(postcss([
-//             autoprefixer({ browsers: ['last 2 versions'] }),
-//             dedupe
-//         ], { syntax: scss }))
-//         .pipe(cssComb())
-//         .pipe(gulp.dest('./'));
-// });
-
-
-// gulp.task('browserSync', function() {
-//     browserSync.init({
-//         server: {
-//             baseDir: './'
-//         }
-//     });
-// });
-// gulp.task('clean:dist', function() {
-//     return del.sync('dist');
-// });
-// gulp.task('fonts', function() {
-//     return gulp.src('assets/fonts/*')
-//         .pipe(gulp.dest('dist/fonts'));
-// });
-// gulp.task('images', function() {
-//     return gulp.src('assets/images/*.+(png|jpg|jpeg|gif|svg)')
-//         .pipe(cache(imagemin({
-//             interlaced: true
-//         })))
-//         .pipe(gulp.dest('dist/images'));
-// });
-// gulp.task('useref', function() {
-//     return gulp.src('templates/*.html')
-//         .pipe(useref())
-//         .pipe(gulpIf('js/**/*.js', uglify()))
-
-//     // Minifies only if it's a CSS file
-//     .pipe(gulpIf('css/*.css', cssnano()))
-//         .pipe(gulp.dest('dist'));
-// });
-// gulp.task('sass', function() {
-//     return gulp.src('sass/**/*.scss')
-//         .pipe(sass()) // Using gulp-sass
-//         .pipe(gulp.dest('app/css'))
-//         .pipe(browserSync.reload({
-//             stream: true
-//         }));
-// });
