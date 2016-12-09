@@ -98,7 +98,6 @@ module.config(function( $translateProvider, $locationProvider, $stateProvider, $
 })
 module.run(['$rootScope','$http','$translate','$location','$stateParams',run])
 function run($rootScope,$http,$translate,$location,$stateParams) {
-
   $rootScope.changeLanguage = function(langKey) {
       $translate.use(langKey);
     }
@@ -115,8 +114,7 @@ function run($rootScope,$http,$translate,$location,$stateParams) {
           $('body').removeClass('ru');
         }
         $location.path( $location.url().replace(lang, langObj.language)).replace();
-      }
-      
+      }   
     })
   $rootScope.activeLang = $translate.preferredLanguage();
   $rootScope.charlotte = $translate.instant('charlotte')

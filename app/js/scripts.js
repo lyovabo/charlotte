@@ -54066,47 +54066,6 @@ return 'pascalprecht.translate';
  var module = angular.module('charlotte', ['ngRoute','pascalprecht.translate','ngCookies','ngSanitize','ui.router']);
 
 module
-  .controller('GalleryCtrl',galleryCtrl);
-function galleryCtrl() {
-  $('#slider-gallery').Cloud9Carousel({
-    yRadius: 5,
-    autoPlay: 1,
-    bringToFront: true
-  });
-
-  $(".tiles").tilesGallery({
-    tileMinHeight: 100,
-    callback: function () {
-        $(".tiles a").lightBox();
-    }
-  });
- 
-}
-module
-  .controller('EventsCtrl',eventsCtrl);
-function eventsCtrl() {
- $(".btn-black").click(function() {
-    $('html, body').animate({
-      scrollTop: $("#" + $(this).attr('data-to')).offset().top
-    }, 1000);
-  });
-}
-module
-  .controller('GalleryStripCtrl',galleryStripCtrl);
-function galleryStripCtrl() {
-  $('#strip-gallery').Cloud9Carousel({
-    yRadius: 5,
-    autoPlay: 1,
-    bringToFront: true
-  });
-   $(".tiles").tilesGallery({
-    tileMinHeight: 100,
-    callback: function () {
-        $(".tiles a").lightBox();
-    }
-  });
-}
-module
   .controller('ContactUsCtrl', contactUsCtrl);
   function contactUsCtrl($scope,$routeParams) {
   $scope.initMap = function() {
@@ -54181,14 +54140,28 @@ module
   }
 }
 module
-  .controller('HistoryCtrl',historyCtrl);
-function historyCtrl() {
-  $().kwicks('destroy');
-  $('.kwicks').kwicks( {
-          maxSize : 250,
-          spacing : 5,
-          behavior: 'menu'
-        })
+  .controller('GalleryStripCtrl',galleryStripCtrl);
+function galleryStripCtrl() {
+  $('#strip-gallery').Cloud9Carousel({
+    yRadius: 5,
+    autoPlay: 1,
+    bringToFront: true
+  });
+   $(".tiles").tilesGallery({
+    tileMinHeight: 100,
+    callback: function () {
+        $(".tiles a").lightBox();
+    }
+  });
+}
+module
+  .controller('EventsCtrl',eventsCtrl);
+function eventsCtrl() {
+ $(".btn-black").click(function() {
+    $('html, body').animate({
+      scrollTop: $("#" + $(this).attr('data-to')).offset().top
+    }, 1000);
+  });
 }
 module
   .controller('InformationCtrl', informationCtrl);
@@ -54216,6 +54189,33 @@ function informationCtrl($scope, $stateParams, $rootScope,$translate) {
    });
 }
 
+module
+  .controller('GalleryCtrl',galleryCtrl);
+function galleryCtrl() {
+  $('#slider-gallery').Cloud9Carousel({
+    yRadius: 5,
+    autoPlay: 1,
+    bringToFront: true
+  });
+
+  $(".tiles").tilesGallery({
+    tileMinHeight: 100,
+    callback: function () {
+        $(".tiles a").lightBox();
+    }
+  });
+ 
+}
+module
+  .controller('HistoryCtrl',historyCtrl);
+function historyCtrl() {
+  $().kwicks('destroy');
+  $('.kwicks').kwicks( {
+          maxSize : 250,
+          spacing : 5,
+          behavior: 'menu'
+        })
+}
 var templatesPath = 'assets/js/templates';
 module.config(function( $translateProvider, $locationProvider, $stateProvider, $urlRouterProvider) {
    $translateProvider
@@ -54316,7 +54316,6 @@ module.config(function( $translateProvider, $locationProvider, $stateProvider, $
 })
 module.run(['$rootScope','$http','$translate','$location','$stateParams',run])
 function run($rootScope,$http,$translate,$location,$stateParams) {
-
   $rootScope.changeLanguage = function(langKey) {
       $translate.use(langKey);
     }
@@ -54333,8 +54332,7 @@ function run($rootScope,$http,$translate,$location,$stateParams) {
           $('body').removeClass('ru');
         }
         $location.path( $location.url().replace(lang, langObj.language)).replace();
-      }
-      
+      }   
     })
   $rootScope.activeLang = $translate.preferredLanguage();
   $rootScope.charlotte = $translate.instant('charlotte')
