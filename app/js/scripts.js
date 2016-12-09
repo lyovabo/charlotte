@@ -54140,6 +54140,15 @@ module
   }
 }
 module
+  .controller('EventsCtrl',eventsCtrl);
+function eventsCtrl() {
+ $(".btn-black").click(function() {
+    $('html, body').animate({
+      scrollTop: $("#" + $(this).attr('data-to')).offset().top
+    }, 1000);
+  });
+}
+module
   .controller('GalleryStripCtrl',galleryStripCtrl);
 function galleryStripCtrl() {
   $('#strip-gallery').Cloud9Carousel({
@@ -54155,13 +54164,14 @@ function galleryStripCtrl() {
   });
 }
 module
-  .controller('EventsCtrl',eventsCtrl);
-function eventsCtrl() {
- $(".btn-black").click(function() {
-    $('html, body').animate({
-      scrollTop: $("#" + $(this).attr('data-to')).offset().top
-    }, 1000);
-  });
+  .controller('HistoryCtrl',historyCtrl);
+function historyCtrl() {
+  $().kwicks('destroy');
+  $('.kwicks').kwicks( {
+          maxSize : 250,
+          spacing : 5,
+          behavior: 'menu'
+        })
 }
 module
   .controller('InformationCtrl', informationCtrl);
@@ -54206,16 +54216,6 @@ function galleryCtrl() {
   });
  
 }
-module
-  .controller('HistoryCtrl',historyCtrl);
-function historyCtrl() {
-  $().kwicks('destroy');
-  $('.kwicks').kwicks( {
-          maxSize : 250,
-          spacing : 5,
-          behavior: 'menu'
-        })
-}
 var templatesPath = 'assets/js/templates';
 module.config(function( $translateProvider, $locationProvider, $stateProvider, $urlRouterProvider) {
    $translateProvider
@@ -54223,7 +54223,7 @@ module.config(function( $translateProvider, $locationProvider, $stateProvider, $
     prefix : './assets/js/translations/',
     suffix : '.json'
   })
-  .preferredLanguage('ru')
+  .preferredLanguage('en')
   .useLocalStorage();
   $translateProvider.useSanitizeValueStrategy();
   $translateProvider.forceAsyncReload(true);
@@ -54233,7 +54233,7 @@ module.config(function( $translateProvider, $locationProvider, $stateProvider, $
     enabled: true,
     requireBase: true
   });
-  $urlRouterProvider.otherwise('/');
+  $urlRouterProvider.otherwise('/en/');
   $stateProvider.state('app', {
     abstract: true,
     url: '/{lang:(?:ru|en)}',
@@ -54241,6 +54241,8 @@ module.config(function( $translateProvider, $locationProvider, $stateProvider, $
   });
   
   $stateProvider
+   .state("otherwise", { url : '/en/',
+                         templateUrl   : templatesPath+'/controller-free/main-content.html'})
   .state('app.home', {
     url           : '/',
     templateUrl   : templatesPath+'/controller-free/main-content.html',

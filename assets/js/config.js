@@ -5,7 +5,7 @@ module.config(function( $translateProvider, $locationProvider, $stateProvider, $
     prefix : './assets/js/translations/',
     suffix : '.json'
   })
-  .preferredLanguage('ru')
+  .preferredLanguage('en')
   .useLocalStorage();
   $translateProvider.useSanitizeValueStrategy();
   $translateProvider.forceAsyncReload(true);
@@ -15,7 +15,7 @@ module.config(function( $translateProvider, $locationProvider, $stateProvider, $
     enabled: true,
     requireBase: true
   });
-  $urlRouterProvider.otherwise('/');
+  $urlRouterProvider.otherwise('/en/');
   $stateProvider.state('app', {
     abstract: true,
     url: '/{lang:(?:ru|en)}',
@@ -23,6 +23,8 @@ module.config(function( $translateProvider, $locationProvider, $stateProvider, $
   });
   
   $stateProvider
+   .state("otherwise", { url : '/en/',
+                         templateUrl   : templatesPath+'/controller-free/main-content.html'})
   .state('app.home', {
     url           : '/',
     templateUrl   : templatesPath+'/controller-free/main-content.html',
