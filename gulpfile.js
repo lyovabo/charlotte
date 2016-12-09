@@ -14,7 +14,10 @@ var gulp = require('gulp'),
   rename = require('gulp-rename'),
   uglify = require('gulp-uglify'),
   imagemin = require('gulp-imagemin'),
-  cache = require('gulp-cache');
+  cache = require('gulp-cache'),
+  connect = require('connect'),
+  app = connect(),
+  header = require('connect-header');
 
 // The default file if the file/path is not found
 var defaultFile = "index.html"
@@ -22,8 +25,9 @@ var defaultFile = "index.html"
 // I had to resolve to the previous folder, because this task lives inside a ./tasks folder
 // If that's not your case, just use `__dirname`
 var folder = path.resolve(__dirname, "./");
-
-gulp.task('watch', ['sass','scripts', 'browserSync'], function() {
+var jsPath = 'assets/js';
+var vPath = 'assets/js/vendor';
+gulp.task('watch', ['sass', 'scripts', 'browserSync'], function() {
   gulp.watch('sass/**/*.scss', ['sass']);
   gulp.watch('sass/*.scss', ['sass']);
   gulp.watch('sass/**/*.scss', browserSync.reload);
@@ -43,11 +47,20 @@ gulp.task('prettycss', function() {
     .pipe(gulp.dest('./'));
 });
 gulp.task('scripts', function() {
-  return gulp.src([ 'assets/js/vendor/jquery/jquery-1.9.1.js','assets/js/vendor/jquery/jquery.kwicks.min.js',
-                    'assets/js/vendor/jquery/jquery.tiles-gallery.js','assets/js/vendor/jquery/jquery.cloud9carousel.js',
-                    'assets/js/vendor/jquery/jquery.lightbox-0.5-mod.js','assets/js/vendor/angular/angular.min.js',
-                    'assets/js/vendor/angular/angular-route.min.js','assets/js/vendor/bootstrap.min.js','assets/js/index.js',
-                    'assets/js/templates/**/*.js','assets/js/config.js'])
+  return gulp.src([vPath + '/jquery/jquery-1.9.1.js', vPath + '/jquery/jquery.kwicks.min.js',
+      vPath + '/jquery/jquery.tiles-gallery.js', vPath + '/jquery/jquery.cloud9carousel.js',
+      vPath + '/jquery/jquery.lightbox-0.5-mod.js', , jsPath + '/vendor/bootstrap.min.js',
+      vPath + '/bower_components/angular/angular.js',
+      vPath + '/bower_components/angular-route/angular-route.js',
+      vPath + '/bower_components/angular-ui-router/release/angular-ui-router.js',
+      vPath + '/bower_components/angular-cookies/angular-cookies.js',
+      vPath + '/bower_components/angular-sanitize/angular-sanitize.js',
+      vPath + '/bower_components/angular-translate/angular-translate.js',
+      vPath + '/bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.js',
+      vPath + '/bower_components/angular-translate-storage-cookie/angular-translate-storage-cookie.js',
+      vPath + '/bower_components/angular-translate-storage-local/angular-translate-storage-local.js',
+       jsPath + '/index.js', jsPath + '/templates/**/*.js', jsPath + '/config.js'
+    ])
     .pipe(concat('scripts.js'))
     .pipe(gulp.dest('app/js'))
     .pipe(rename('scripts.min.js'))
@@ -60,17 +73,24 @@ gulp.task('sass', function() {
     .pipe(gulp.dest('assets/css'))
 });
 
+function setContentType(){
+    app.use(header({
+        'Content-type':'UTF-8'
+    }));
+}
+
 gulp.task('browserSync', function() {
   browserSync.init({
     server: {
       baseDir: './',
       index: 'index.html',
       middleware: function(req, res, next) {
+        setContentType();
         var fileName = url.parse(req.url);
         fileName = fileName.href.split(fileName.search).join("");
         var fileExists = fs.existsSync(folder + fileName);
         if (!fileExists && fileName.indexOf("browser-sync-client") < 0) {
-            req.url = "/" + defaultFile;
+          req.url = "/" + defaultFile;
         }
         return next();
       }
@@ -85,7 +105,8 @@ gulp.task('images', function() {
     .pipe(gulp.dest('app/images'));
 });
 gulp.task('templates', function() {
-    gulp.src('assets/js/directives/**/*.js')
-        .pipe(embedTemplates())
-        .pipe(gulp.dest('./dist'));
+  gulp.src(vPath + '/directives/**/*.js')
+    .pipe(embedTemplates())
+    .pipe(gulp.dest('./dist'));
 });
+

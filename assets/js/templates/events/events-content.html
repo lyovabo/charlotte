@@ -5,10 +5,8 @@
   </video>
   <main class="container text-center" id="events-content" ng-controller="EventsCtrl">
     <header>
-      <p class="lead text-primary text-center">
-        We try to do something new in Yerevan
-        <br> to help You CREATE Your own
-        <br> !!! EVENING or EVENT !!!
+      <p class="lead text-primary text-center" translate="events.title">
+        
       </p>
     </header>
     <div id="carousel-events-header" class="carousel slide  " data-ride="carousel">
@@ -25,12 +23,11 @@
           </a>
           <div class="p-t-wrapper text-center col-sm-3  m-b-20">
             <div class="e-h-item">
-              <h2 >Stag-Party</h2>
-              <p class="lead ">
-                <small>New in Yerevan<br> </small> Support Team
-                <br> For Free
+              <h2 translate="events.hero.stagpartySlide.title"></h2>
+              <p class="lead " translate="events.hero.stagpartySlide.description">
+                
               </p>
-              <button class="btn btn-black" data-to="stag">More</button>
+              <button class="btn btn-black" data-to="stag" translate="button.more"></button>
             </div>
           </div>
         </div>
@@ -40,12 +37,11 @@
           </a>
           <div class="p-t-wrapper text-center  col-sm-3  m-b-20">
             <div class="e-h-item">
-              <h2 >Birthday  Party</h2>
-              <p class="lead  ">
-                <small>New in Yerevan<br> </small> Support Team
-                <br> For Free
+              <h2 translate="events.hero.birthdaypartySlide.title"></h2>
+              <p class="lead  "  translate="events.hero.birthdaypartySlide.title">
+                
               </p>
-              <button class="btn btn-black" data-to="birth">More</button>
+              <button class="btn btn-black" data-to="birth" translate="button.more"></button>
             </div>
           </div>
         </div>
@@ -55,12 +51,11 @@
           </a>
           <div class="p-t-wrapper text-center  col-sm-3  m-b-20">
             <div class="e-h-item">
-              <h2 >Hen-Party</h2>
-              <p class="lead  ">
-                <small>New in Yerevan<br> </small> Support Team
-                <br> For Free
+              <h2 translate="events.hero.henpartySlide.title"></h2>
+              <p class="lead  " translate="events.hero.henpartySlide.description">
+               
               </p>
-              <button class="btn btn-black" data-to="hen">More</button>
+              <button class="btn btn-black" data-to="hen" translate="button.more"></button>
             </div>
           </div>
         </div>
@@ -70,12 +65,11 @@
           </a>
           <div class="p-t-wrapper text-center  col-sm-3  m-b-20">
             <div class="e-h-item">
-              <h2 >Closed Party</h2>
-              <p class="lead  ">
-                <small>New in Yerevan<br> </small> Support Team
-                <br> For Free
+              <h2 translate="events.hero.closedpartySlide.title"></h2>
+              <p class="lead  "  translate="events.hero.closedpartySlide.description">
+                
               </p>
-              <button class="btn btn-black" data-to="closed">More</button>
+              <button class="btn btn-black" data-to="closed" translate="button.more"></button>
             </div>
           </div>
         </div>
@@ -90,7 +84,7 @@
     </div>
     <section class="clearfix" id="stag">
       <h2 class="text-center text-primary  m-b-40">
-        <u>Our Proposals</u>  
+        <u translate="events.purposals.title"></u>  
       </h2>
       <div class="col-sm-9">
         <div id="carousel-events-stag" class="carousel slide  events " data-ride="carousel">
@@ -115,26 +109,24 @@
       </div>
       <div class="col-sm-3 m-b-20" >
         <div class="text-left ">
-          <h2 class="text-primary  text-uppercase">
-            stag party
+          <h2 class="text-primary  text-uppercase" translate="events.purposals.stag.title">
+            
           </h2>
-          <p>
-            For this event you have
+          <p translate="events.purposals.stag.descriptionTitle">
+            
           </p>
-          <ul>
-            <li>10% off for entrance fee</li>
-            <li>One Private Dance</li>
-            <li>And Professional Support team for free.</li>
+          <ul translate="events.purposals.stag.description">
+            
           </ul>
         </div>
       </div>
     </section>
     
       <p class="text-primary text-center lead">
-        If you are interested please contact us
+        <span translate="events.purposals.contactusText1"></span>
         <br>
-        <a class="btn btn-primary" href="./contact-us">Press Here</a>
-        To Contact with Us
+        <a class="btn btn-primary" href ui-sref="app.contacts({lang: activeLang})" translate="button.pressHere"></a>
+        <span translate="events.purposals.contactusText2"></span>
       </p>
     
     <section class=" clearfix" id="birth">
@@ -164,26 +156,23 @@
       </div>
       <div class=" col-sm-3 col-sm-pull-9" >
         <div class="text-left m-b-20">
-          <h2 class="text-primary  text-uppercase ">
-            Birthday party
+          <h2 class="text-primary  text-uppercase " translate="events.purposals.birthday.title">
+            
           </h2>
-          <p>
-            Your Birthday is a Special Event for Us.
-            <br> Celebrate it a little bit different.​
+          <p  translate="events.purposals.birthday.description">
+           
           </p>
-          <ul>
-            <li>10% off for entrance fee</li>
-            <li>Individual Private Dance</li>
-            <li>Some Gifts from us</li>
+          <ul  translate="events.purposals.birthday.description">
+            
           </ul>
         </div>
       </div>
     </section>
       <p class="text-primary text-center lead">
-        If you are interested please contact us
+        <span translate="events.purposals.contactusText1"></span>
         <br>
-        <a class="btn btn-primary" href="./contact-us">Press Here</a>
-        To Contact with Us
+        <a class="btn btn-primary" href ui-sref="app.contacts({lang: activeLang})" translate="button.pressHere"></a>
+        <span translate="events.purposals.contactusText2"></span>
       </p>
       <section class=" clearfix "  id="hen">
         <div class=" col-sm-9">
@@ -209,21 +198,21 @@
         </div>
         <div class=" col-sm-3 ">
           <div class="text-left ">
-            <h2 class="text-primary  text-uppercase ">
-              hen-party
+            <h2 class="text-primary  text-uppercase "  translate="events.purposals.hen-party.title">
+              
             </h2>
-            <p>
-              Hen-Party is one of the most beautiful events when you celebrate it beautifully. We know how to do it beautifully. For You Girls we can offer everything. By Your Order. Do not be shy
+            <p  translate="events.purposals.hen-party.description">
+              
             </p>
           </div>
         </div>
       </section>
     
       <p class="text-primary text-center lead">
-        If you are interested please contact us
+        <span translate="events.purposals.contactusText1"></span>
         <br>
-        <a class="btn btn-primary" href="./contact-us">Press Here</a>
-        To Contact with Us
+        <a class="btn btn-primary" href ui-sref="app.contacts({lang: activeLang})" translate="button.pressHere"></a>
+        <span translate="events.purposals.contactusText2"></span>
       </p>
     
     <section class="clearfix" id="closed">
@@ -259,21 +248,21 @@
       </div>
       <div class=" col-sm-3 col-sm-pull-9">
         <div class="text-left ">
-          <h2 class="text-primary  text-uppercase">
-            closed party
+          <h2 class="text-primary  text-uppercase"  translate="events.purposals.closedParty.title">
+            
           </h2>
-          <p>
-            For this Party You need to be a more Powerful person. But as soon as You show Your power, than We will provide you our Professional Support team. And some Presents from us.
+          <p  translate="events.purposals.closedParty.description">
+            
           </p>
         </div>
       </div>
     </section>
     
       <p class="text-primary text-center lead">
-        If you are interested please contact us
+        <span translate="events.purposals.contactusText1"></span>
         <br>
-        <a class="btn btn-primary" href="./contact-us">Press Here</a>
-        To Contact with Us
+        <a class="btn btn-primary" href ui-sref="app.contacts({lang: activeLang})" translate="button.pressHere"></a>
+        <span translate="events.purposals.contactusText2"></span>
       </p>
     
   </main>

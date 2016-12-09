@@ -1,34 +1,31 @@
 <main class="container  ">
   <section class="col-sm-8 col-sm-offset-2">
-    <h2 class="text-left text-primary">Careers</h2>
-    <p class="text-left">
-      To work at Cabaret Charlotte, you need to fill simple list
-      <br> and send your CV to info@charlotte.am In our Company, we have a lot of great singers and dancers,
-      <br> we grow up anyone who has talent. If you have talent just join
-      <br> us we will support you and we believe in you.
+    <h2 class="text-left text-primary" translate="careers.title"></h2>
+    <p class="text-left" translate="careers.description">
+      
     </p>
   </section>
   <section class="col-sm-6 col-sm-offset-3">
     <form>
       <div class="form-group">
-        <input type="text" class="form-control" id="name" placeholder="Name Surname">
+        <input type="text" class="form-control" id="name" placeholder="{{'careers.name' | translate }}">
       </div>
       <div class="form-group">
-        <input type="email" class="form-control" id="email" placeholder="Email">
+        <input type="email" class="form-control" id="email" placeholder="{{'careers.email' | translate }}">
       </div>
       <div class="form-group">
-        <input type="text" class="form-control" id="phone" placeholder="Phone">
+        <input type="text" class="form-control" id="phone" placeholder="{{'careers.phone' | translate }}">
       </div>
       <div class="form-group">
-        <input type="text" class="form-control" id="date" placeholder="Address">
+        <input type="text" class="form-control" id="date" placeholder="{{'careers.address' | translate }}">
       </div>
       <div class="form-group">
-        <input type="text" class="form-control" id="count" placeholder="Subject">
+        <input type="text" class="form-control" id="count" placeholder="{{'careers.subject' | translate }}">
       </div>
       <div class="form-group">
-        <textarea name="message" cols="30" rows="10" placeholder="Message" class="form-control"></textarea>
+        <textarea name="message" cols="30" rows="10" placeholder="{{'careers.message' | translate }}" class="form-control"></textarea>
       </div>
-      <button type="submit" class="btn btn-primary pull-right">Send</button>
+      <button type="submit" class="btn btn-primary pull-right" translate="button.send"></button>
     </form>
   </section>
 </main>

@@ -1,0 +1,32 @@
+{
+  "name": "vendor",
+  "homepage": "https://github.com/lyovabo/charlotte",
+  "authors": [
+    "lyovabo <minasyanlevon@gmai.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.9"
+  },
+  "devDependencies": {
+    "angular-route": "^1.5.9",
+    "angular-translate": "^2.13.0",
+    "angular-translate-loader-static-files": "^2.13.0",
+    "angular-cookies": "^1.5.9",
+    "angular-translate-storage-cookie": "^2.13.0",
+    "angular-translate-storage-local": "^2.13.0",
+    "angular-sanitize": "^1.5.9",
+    "angular-translate-loader-partial": "^2.13.0",
+    "angular-ui-router": "^0.3.2"
+  }
+}

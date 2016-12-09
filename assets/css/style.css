@@ -7189,6 +7189,11 @@ button.close {
   .btn-primary:hover {
     background-color: rgba(237, 7, 99, 0.7); }
 
+.btn-back {
+  position: absolute;
+  bottom: 130px;
+  right: 30px; }
+
 .background-video {
   position: fixed;
   top: 50%;
@@ -7722,7 +7727,7 @@ Media Queries
 /* 480px and bigger */
 #social-networks {
   font-size: 28px;
-  width: 240px; }
+  width: 250px; }
   #social-networks address {
     margin-top: 12px;
     font-size: 12px;

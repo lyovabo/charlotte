@@ -7,82 +7,82 @@
         <span class="icon-bar"></span>
       </button>
       <a class="navbar-brand pull-left logo with-caption" id="logo" href="./" data-caption="Charlotte Cabaret">
-        Charlotte
+        {{charlotte}}
         <img src="./app/images/logo.png" alt="Cabaret Charoltte">
       </a>
       <div class="collapse navbar-collapse">
 
         <ul class="list-inline list-unstyled text-right">
           <li>
-            <a href="#rus">
+            <a  href="#"  ng-click="changeLanguage('ru')">
               <i class="icon-flag icon-flag-rus"></i>
             </a>
           </li>
           <li>
-            <a href="#eng">
+            <a  href="#" ng-click="changeLanguage('en')">
               <i class="icon-flag icon-flag-eng"></i>
             </a>
           </li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li class="active">
-            <a href="./">Home</a>
+            <a href translate="navbar-menu.home" ui-sref="app.home({lang: activeLang})"></a>
           </li>
           <li class="dropdown">
-            <a class="dropdown dropdown-toggle " href="./show">Show <i class="fa fa-angle-down pull-right"></i></a>
+            <a class="dropdown dropdown-toggle " href  ui-sref="app.show({lang: activeLang})"><span translate="navbar-menu.show"></span> <i class="fa fa-angle-down pull-right"></i></a>
             <ul class="dropdown-menu">
               <li>
-                <a href="./special">Special</a>
+                <a href ui-sref="app.special({lang: activeLang})" translate="navbar-menu.special"></a>
               </li>
               <li>
-                <a href="./posters">Posters</a>
+                <a href ui-sref="app.posters({lang: activeLang})" translate="navbar-menu.posters"></a>
               </li>
             </ul>
           </li>
            <li>
-            <a href="./strip">Strip</a>
+            <a href ui-sref="app.strip({lang: activeLang})" translate="navbar-menu.strip"></a>
           </li>
           <li>
-            <a href="/vip">V.I.P</a>
+            <a href ui-sref="app.vip({lang: activeLang})" translate="navbar-menu.vip"></a>
           </li>
           <li class="dropdown">
-            <a  class="dropdown dropdown-toggle" href="./gallery">Gallery <i class="fa fa-angle-down pull-right"></i></a>
+            <a  class="dropdown dropdown-toggle" href ui-sref="app.gallery({lang: activeLang})"><span  translate="navbar-menu.gallery"></span> <i class="fa fa-angle-down pull-right"></i></a>
              <ul class="dropdown-menu">
               <li>
-                <a href="./gallery">Show</a>
+                <a href ui-sref="app.gallery({lang: activeLang})" translate="navbar-menu.show"></a>
               </li>
               <li>
-                <a href="./strip-gallery">Strip</a>
+                <a href ui-sref="app.galleryStrip({lang: activeLang})" translate="navbar-menu.strip"></a>
               </li>
             </ul>
           </li>
           <li class="dropdown">
-            <a class="dropdown dropdown-toggle " href="./menu">Menu <i class="fa fa-angle-down pull-right"></i></a>
+            <a class="dropdown dropdown-toggle " href ui-sref="app.menu({lang: activeLang})" ><span translate="navbar-menu.menu"></span> <i class="fa fa-angle-down pull-right"></i></a>
             <ul class="dropdown-menu">
               <li>
-                <a href="./menu">Standard</a>
+                <a href ui-sref="app.menu({lang: activeLang})" translate="navbar-menu.standart"></a>
               </li>
               <li>
-                <a href="./menu-crazy">Crazy</a>
+                <a href ui-sref="app.menuCrazy({lang: activeLang})" translate="navbar-menu.crazy"></a>
               </li>
               <li>
-                <a href="./menu-nargile">Nargile</a>
+                <a href ui-sref="app.menuNargile({lang: activeLang})" translate="navbar-menu.nargile"></a>
               </li>
             </ul>
           </li>
           <li>
-            <a href="./events">Events</a>
+            <a href ui-sref="app.events({lang: activeLang})" translate="navbar-menu.events"></a>
           </li>
           <li>
-            <a href="./history">Our History</a>
+            <a href ui-sref="app.history({lang: activeLang})" translate="navbar-menu.history"></a>
           </li>
           <li class="dropdown">
-            <a  class="dropdown dropdown-toggle" href="./contact-us">
-              Contacts <i class="fa fa-angle-down pull-right"></i>
+            <a  class="dropdown dropdown-toggle" href ui-sref="app.contacts({lang: activeLang})" ><span translate="navbar-menu.contacts"></span>
+               <i class="fa fa-angle-down pull-right"></i>
             </a>
              <ul class="dropdown-menu">
               <li>
-                <a href="./career">Career</a>
+                <a href ui-sref="app.career({lang: activeLang})" translate="navbar-menu.career"></a>
               </li>
               
             </ul>

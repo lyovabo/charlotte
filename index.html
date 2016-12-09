@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" ng-app="charlotte">
 
   <head>
     <base href="/">
@@ -9,20 +9,22 @@
     <meta content="" name="description" />
     <meta content="" name="keywords" />
     <meta content="" name="author" />
-    <title>
-      Charlotte
+    <title translate="charlotte">
+    
     </title>
     <link href="favicon.ico" rel="shortcut icon" />
     <link href="apple-touch-icon.png" rel="apple-touch-icon">
-    <link href="assets/css/style.css" rel="stylesheet" />
     <link href="assets/css/vendor/jquery.lightbox-0.5.css" rel="stylesheet" />
     <link href="assets/css/vendor/jquery.kwicks.min.css" rel="stylesheet" />
+    <link href="assets/css/style.css" rel="stylesheet" />
 
   </head>
 
-  <body ng-app="charlotte">
+  <body >
     <ng-include src="'assets/js/templates/header/navbar-header.html'"></ng-include>
-    <ng-view></ng-view>
+    <!-- <ng-view></ng-view> -->
+    <!-- <ui-view></ui-view> -->
+    <div ui-view></div>
     <ng-include src="'assets/js/templates/footer/footer.html'"></ng-include>
     <script src="./app/js/scripts.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCSwYyZsSLiL4TRqP9KdXKMmMK8dBMNtdo" async defer></script>
