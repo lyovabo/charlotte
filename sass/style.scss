@@ -863,7 +863,13 @@ Media Queries
     }
   }
 }
-
+.ru {
+  #change-life-link {
+    a,p {
+      font-size:1.8vw;
+    }
+  }
+}
 /* 480px to 767px */
 
 @media (min-width: $screen-xs-min) and (max-width: $screen-xs-max) {

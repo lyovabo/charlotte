@@ -7808,6 +7808,9 @@ Media Queries
     border-bottom-width: 1px;
     border-bottom-style: solid !important; } }
 
+.ru #change-life-link a, .ru #change-life-link p {
+  font-size: 1.8vw; }
+
 /* 480px to 767px */
 @media (min-width: 480px) and (max-width: 767px) {
   html {

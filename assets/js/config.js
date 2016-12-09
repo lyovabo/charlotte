@@ -102,21 +102,24 @@ function run($rootScope,$http,$translate,$location,$stateParams) {
   $rootScope.changeLanguage = function(langKey) {
       $translate.use(langKey);
     }
+    if($location.url().indexOf('/ru/')!=-1) {
+      $('body').addClass('ru');
+    }
     $rootScope.$on('$translateChangeSuccess', function(event,langObj,etc) {
       if($rootScope.activeLang!== langObj.language){
         $rootScope.activeLang = langObj.language;
         var lang = ($rootScope.activeLang === 'ru') ? 'en' : 'ru';
+        if(lang != 'ru'){
+          $('body').addClass('ru');
+        } else {
+          $('body').removeClass('ru');
+        }
         $location.path( $location.url().replace(lang, langObj.language)).replace();
       }
       
     })
   $rootScope.activeLang = $translate.preferredLanguage();
-
   $rootScope.charlotte = $translate.instant('charlotte')
  
-  $http.get('assets/js/configs/config.json').then(function(response){
-    // $rootScope.singers1 = response.data;
-  },function(err){
-      alert(err);
-  })
+  
 }
