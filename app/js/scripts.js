@@ -10085,9 +10085,7 @@ if ( typeof define === "function" && define.amd && define.amd.jQuery ) {
  */
 
 ;(function($) {
-  //
-  // Detect CSS transform support
-  //
+ 
   var transform = (function() {
     var vendors = ['webkit', 'moz', 'ms'];
     var style   = document.createElement( "div" ).style;
@@ -10120,7 +10118,7 @@ if ( typeof define === "function" && define.amd && define.amd.jQuery ) {
     element.style.position = 'absolute';
 
     if( options.mirror && this.element.tagName === 'IMG' ) {
-      // Wrap image in a div together with its generated reflection
+     
       this.reflection = $(element).reflect( options.mirror ).next()[0];
 
       var $reflection = $(this.reflection);
@@ -10129,7 +10127,7 @@ if ( typeof define === "function" && define.amd && define.amd.jQuery ) {
       $reflection.css( 'width', '100%' );
       element.style.width = "100%";
 
-      // The item element now contains the image and reflection
+      
       this.element = this.element.parentNode;
       this.element.item  = this;
       this.element.alt   = element.alt;
@@ -10152,7 +10150,7 @@ if ( typeof define === "function" && define.amd && define.amd.jQuery ) {
       if( transform && options.transforms ) {
         style[transform] = "translate(" + x + "px, " + y + "px) scale(" + scale + ")";
       } else {
-        // The gap between the image and its reflection doesn't resize automatically
+        
         if( options.mirror && this.element.tagName === 'IMG' )
           this.reflection.style.marginTop = (options.mirror.gap * scale) + "px";
 
@@ -10167,12 +10165,6 @@ if ( typeof define === "function" && define.amd && define.amd.jQuery ) {
     function() { return +new Date() } :
     function() { return performance.now() };
 
-  //
-  // Detect requestAnimationFrame() support
-  //
-  // Support legacy browsers:
-  //   http://www.paulirish.com/2011/requestanimationframe-for-smart-animating/
-  //
   var cancelFrame = window.cancelAnimationFrame || window.cancelRequestAnimationFrame;
   var requestFrame = window.requestAnimationFrame;
 
@@ -10216,11 +10208,7 @@ if ( typeof define === "function" && define.amd && define.amd.jQuery ) {
 
     $container.css( { position: 'relative', overflow: 'hidden' } );
 
-    // Rotation:
-    //  *      0 : right
-    //  *   Pi/2 : front
-    //  *   Pi   : left
-    //  * 3 Pi/2 : back
+   
     this.renderItem = function( itemIndex, rotation ) {
       var item = this.items[itemIndex];
       var sin = Math.sin(rotation);
@@ -10307,9 +10295,7 @@ if ( typeof define === "function" && define.amd && define.amd.jQuery ) {
       this.timer = 0;
     }
 
-    //
-    // Spin the carousel.  Count is the number (+-) of carousel items to rotate
-    //
+   
     this.go = function( count ) {
       this.destRotation += (2 * Math.PI / this.items.length) * count;
       this.play();
@@ -54177,12 +54163,9 @@ module
   .controller('InformationCtrl', informationCtrl);
 
 function informationCtrl($scope, $stateParams, $rootScope,$translate) {
-  // $scope.singer = 'singers.';
-  // $scope.singer += $stateParams.singer;
-   // console.log( $translate('singers.'+$stateParams.singer))
-   // console.log($stateParams.singer);
+
    var singer = 'siners.'+$stateParams.singer;
-   // console.log(singer);
+   
       $scope.singer = {}
    $translate([singer+'.firstName',singer+'.lastName',singer+'.fullName',singer+'.about',singer+'.listen',singer+'.imagesCount']).then(function(res) {    
       $scope.singer.firstName = res[singer+'.firstName'];
@@ -54217,7 +54200,8 @@ function galleryCtrl() {
  
 }
 var templatesPath = 'assets/js/templates';
-module.config(function( $translateProvider, $locationProvider, $stateProvider, $urlRouterProvider) {
+module.config(['$translateProvider','$locationProvider','$stateProvider','$urlRouterProvider', configFunction]);
+function configFunction($translateProvider,$locationProvider,$stateProvider,$urlRouterProvider) {
    $translateProvider
   .useStaticFilesLoader({
     prefix : './assets/js/translations/',
@@ -54301,26 +54285,29 @@ module.config(function( $translateProvider, $locationProvider, $stateProvider, $
     templateUrl   : templatesPath+'/history/history-content.html',
     controller    : "HistoryCtrl"
   })
-
   .state('app.contacts', {
     url           : '/contact-us',
-    templateUrl   : templatesPath+'/contact-us/contact-us-content.html',
-    
+    templateUrl   : templatesPath+'/contact-us/contact-us-content.html'
   })
   .state('app.career', {
     url           : '/career',
     templateUrl   : templatesPath+'/contact-us/career-content.html'
   })
   .state('app.reservation', {
-    url           : '/career',
+    url           : '/reservation',
     templateUrl   : templatesPath+'/controller-free/reservation-content.html'
-  })
-})
-module.run(['$rootScope','$http','$translate','$location','$stateParams',run])
+  });
+};
+
+module.run(['$rootScope','$http','$translate','$location','$stateParams',run]);
+
 function run($rootScope,$http,$translate,$location,$stateParams) {
   $rootScope.changeLanguage = function(langKey) {
       $translate.use(langKey);
     }
+  $rootScope.backButton = function() {
+    return location.pathname.length>4;
+  }
     if($location.url().indexOf('/ru/')!=-1) {
       $('body').addClass('ru');
     }
@@ -54337,7 +54324,5 @@ function run($rootScope,$http,$translate,$location,$stateParams) {
       }   
     })
   $rootScope.activeLang = $translate.preferredLanguage();
-  $rootScope.charlotte = $translate.instant('charlotte')
- 
-  
+  $rootScope.charlotte = $translate.instant('charlotte') 
 }

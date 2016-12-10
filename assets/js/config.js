@@ -1,5 +1,6 @@
 var templatesPath = 'assets/js/templates';
-module.config(function( $translateProvider, $locationProvider, $stateProvider, $urlRouterProvider) {
+module.config(['$translateProvider','$locationProvider','$stateProvider','$urlRouterProvider', configFunction]);
+function configFunction($translateProvider,$locationProvider,$stateProvider,$urlRouterProvider) {
    $translateProvider
   .useStaticFilesLoader({
     prefix : './assets/js/translations/',
@@ -83,26 +84,29 @@ module.config(function( $translateProvider, $locationProvider, $stateProvider, $
     templateUrl   : templatesPath+'/history/history-content.html',
     controller    : "HistoryCtrl"
   })
-
   .state('app.contacts', {
     url           : '/contact-us',
-    templateUrl   : templatesPath+'/contact-us/contact-us-content.html',
-    
+    templateUrl   : templatesPath+'/contact-us/contact-us-content.html'
   })
   .state('app.career', {
     url           : '/career',
     templateUrl   : templatesPath+'/contact-us/career-content.html'
   })
   .state('app.reservation', {
-    url           : '/career',
+    url           : '/reservation',
     templateUrl   : templatesPath+'/controller-free/reservation-content.html'
-  })
-})
-module.run(['$rootScope','$http','$translate','$location','$stateParams',run])
+  });
+};
+
+module.run(['$rootScope','$http','$translate','$location','$stateParams',run]);
+
 function run($rootScope,$http,$translate,$location,$stateParams) {
   $rootScope.changeLanguage = function(langKey) {
       $translate.use(langKey);
     }
+  $rootScope.backButton = function() {
+    return location.pathname.length>4;
+  }
     if($location.url().indexOf('/ru/')!=-1) {
       $('body').addClass('ru');
     }
@@ -119,7 +123,5 @@ function run($rootScope,$http,$translate,$location,$stateParams) {
       }   
     })
   $rootScope.activeLang = $translate.preferredLanguage();
-  $rootScope.charlotte = $translate.instant('charlotte')
- 
-  
+  $rootScope.charlotte = $translate.instant('charlotte') 
 }

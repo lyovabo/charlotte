@@ -24,9 +24,7 @@
  */
 
 ;(function($) {
-  //
-  // Detect CSS transform support
-  //
+ 
   var transform = (function() {
     var vendors = ['webkit', 'moz', 'ms'];
     var style   = document.createElement( "div" ).style;
@@ -59,7 +57,7 @@
     element.style.position = 'absolute';
 
     if( options.mirror && this.element.tagName === 'IMG' ) {
-      // Wrap image in a div together with its generated reflection
+     
       this.reflection = $(element).reflect( options.mirror ).next()[0];
 
       var $reflection = $(this.reflection);
@@ -68,7 +66,7 @@
       $reflection.css( 'width', '100%' );
       element.style.width = "100%";
 
-      // The item element now contains the image and reflection
+      
       this.element = this.element.parentNode;
       this.element.item  = this;
       this.element.alt   = element.alt;
@@ -91,7 +89,7 @@
       if( transform && options.transforms ) {
         style[transform] = "translate(" + x + "px, " + y + "px) scale(" + scale + ")";
       } else {
-        // The gap between the image and its reflection doesn't resize automatically
+        
         if( options.mirror && this.element.tagName === 'IMG' )
           this.reflection.style.marginTop = (options.mirror.gap * scale) + "px";
 
@@ -106,12 +104,6 @@
     function() { return +new Date() } :
     function() { return performance.now() };
 
-  //
-  // Detect requestAnimationFrame() support
-  //
-  // Support legacy browsers:
-  //   http://www.paulirish.com/2011/requestanimationframe-for-smart-animating/
-  //
   var cancelFrame = window.cancelAnimationFrame || window.cancelRequestAnimationFrame;
   var requestFrame = window.requestAnimationFrame;
 
@@ -155,11 +147,7 @@
 
     $container.css( { position: 'relative', overflow: 'hidden' } );
 
-    // Rotation:
-    //  *      0 : right
-    //  *   Pi/2 : front
-    //  *   Pi   : left
-    //  * 3 Pi/2 : back
+   
     this.renderItem = function( itemIndex, rotation ) {
       var item = this.items[itemIndex];
       var sin = Math.sin(rotation);
@@ -246,9 +234,7 @@
       this.timer = 0;
     }
 
-    //
-    // Spin the carousel.  Count is the number (+-) of carousel items to rotate
-    //
+   
     this.go = function( count ) {
       this.destRotation += (2 * Math.PI / this.items.length) * count;
       this.play();

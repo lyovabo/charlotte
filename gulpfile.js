@@ -47,7 +47,8 @@ gulp.task('prettycss', function() {
     .pipe(gulp.dest('./'));
 });
 gulp.task('scripts', function() {
-  return gulp.src([vPath + '/jquery/jquery-1.9.1.js', vPath + '/jquery/jquery.kwicks.min.js',
+  return gulp.src([
+      vPath + '/jquery/jquery-1.9.1.js', vPath + '/jquery/jquery.kwicks.min.js',
       vPath + '/jquery/jquery.tiles-gallery.js', vPath + '/jquery/jquery.cloud9carousel.js',
       vPath + '/jquery/jquery.lightbox-0.5-mod.js', , jsPath + '/vendor/bootstrap.min.js',
       vPath + '/bower_components/angular/angular.js',
@@ -59,7 +60,9 @@ gulp.task('scripts', function() {
       vPath + '/bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.js',
       vPath + '/bower_components/angular-translate-storage-cookie/angular-translate-storage-cookie.js',
       vPath + '/bower_components/angular-translate-storage-local/angular-translate-storage-local.js',
-       jsPath + '/index.js', jsPath + '/templates/**/*.js', jsPath + '/config.js'
+      jsPath + '/index.js',
+      jsPath + '/templates/**/*.js',
+      jsPath + '/config.js'
     ])
     .pipe(concat('scripts.js'))
     .pipe(gulp.dest('app/js'))
