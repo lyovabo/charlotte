@@ -54052,6 +54052,15 @@ return 'pascalprecht.translate';
  var module = angular.module('charlotte', ['ngRoute','pascalprecht.translate','ngCookies','ngSanitize','ui.router']);
 
 module
+  .controller('EventsCtrl',eventsCtrl);
+function eventsCtrl() {
+ $(".btn-black").click(function() {
+    $('html, body').animate({
+      scrollTop: $("#" + $(this).attr('data-to')).offset().top
+    }, 1000);
+  });
+}
+module
   .controller('ContactUsCtrl', contactUsCtrl);
   function contactUsCtrl($scope,$routeParams) {
   $scope.initMap = function() {
@@ -54126,15 +54135,6 @@ module
   }
 }
 module
-  .controller('EventsCtrl',eventsCtrl);
-function eventsCtrl() {
- $(".btn-black").click(function() {
-    $('html, body').animate({
-      scrollTop: $("#" + $(this).attr('data-to')).offset().top
-    }, 1000);
-  });
-}
-module
   .controller('GalleryStripCtrl',galleryStripCtrl);
 function galleryStripCtrl() {
   $('#strip-gallery').Cloud9Carousel({
@@ -54160,6 +54160,23 @@ function historyCtrl() {
         })
 }
 module
+  .controller('GalleryCtrl',galleryCtrl);
+function galleryCtrl() {
+  $('#slider-gallery').Cloud9Carousel({
+    yRadius: 5,
+    autoPlay: 1,
+    bringToFront: true
+  });
+
+  $(".tiles").tilesGallery({
+    tileMinHeight: 100,
+    callback: function () {
+        $(".tiles a").lightBox();
+    }
+  });
+ 
+}
+module
   .controller('InformationCtrl', informationCtrl);
 
 function informationCtrl($scope, $stateParams, $rootScope,$translate) {
@@ -54182,23 +54199,6 @@ function informationCtrl($scope, $stateParams, $rootScope,$translate) {
    });
 }
 
-module
-  .controller('GalleryCtrl',galleryCtrl);
-function galleryCtrl() {
-  $('#slider-gallery').Cloud9Carousel({
-    yRadius: 5,
-    autoPlay: 1,
-    bringToFront: true
-  });
-
-  $(".tiles").tilesGallery({
-    tileMinHeight: 100,
-    callback: function () {
-        $(".tiles a").lightBox();
-    }
-  });
- 
-}
 var templatesPath = 'assets/js/templates';
 module.config(['$translateProvider','$locationProvider','$stateProvider','$urlRouterProvider', configFunction]);
 function configFunction($translateProvider,$locationProvider,$stateProvider,$urlRouterProvider) {
@@ -54306,7 +54306,10 @@ function run($rootScope,$http,$translate,$location,$stateParams) {
       $translate.use(langKey);
     }
   $rootScope.backButton = function() {
-    return location.pathname.length>4;
+    return !(  location.pathname.length != '/ru/' 
+            || location.pathname.length != '/en/'
+            || location.pathname.length != '/charlotte/en/'
+            || location.pathname.length != '/charlotte/ru/');
   }
     if($location.url().indexOf('/ru/')!=-1) {
       $('body').addClass('ru');
