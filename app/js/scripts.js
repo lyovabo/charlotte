@@ -54052,15 +54052,6 @@ return 'pascalprecht.translate';
  var module = angular.module('charlotte', ['ngRoute','pascalprecht.translate','ngCookies','ngSanitize','ui.router']);
 
 module
-  .controller('EventsCtrl',eventsCtrl);
-function eventsCtrl() {
- $(".btn-black").click(function() {
-    $('html, body').animate({
-      scrollTop: $("#" + $(this).attr('data-to')).offset().top
-    }, 1000);
-  });
-}
-module
   .controller('ContactUsCtrl', contactUsCtrl);
   function contactUsCtrl($scope,$routeParams) {
   $scope.initMap = function() {
@@ -54135,29 +54126,13 @@ module
   }
 }
 module
-  .controller('GalleryStripCtrl',galleryStripCtrl);
-function galleryStripCtrl() {
-  $('#strip-gallery').Cloud9Carousel({
-    yRadius: 5,
-    autoPlay: 1,
-    bringToFront: true
+  .controller('EventsCtrl',eventsCtrl);
+function eventsCtrl() {
+ $(".btn-black").click(function() {
+    $('html, body').animate({
+      scrollTop: $("#" + $(this).attr('data-to')).offset().top
+    }, 1000);
   });
-   $(".tiles").tilesGallery({
-    tileMinHeight: 100,
-    callback: function () {
-        $(".tiles a").lightBox();
-    }
-  });
-}
-module
-  .controller('HistoryCtrl',historyCtrl);
-function historyCtrl() {
-  $().kwicks('destroy');
-  $('.kwicks').kwicks( {
-          maxSize : 250,
-          spacing : 5,
-          behavior: 'menu'
-        })
 }
 module
   .controller('GalleryCtrl',galleryCtrl);
@@ -54175,6 +54150,21 @@ function galleryCtrl() {
     }
   });
  
+}
+module
+  .controller('GalleryStripCtrl',galleryStripCtrl);
+function galleryStripCtrl() {
+  $('#strip-gallery').Cloud9Carousel({
+    yRadius: 5,
+    autoPlay: 1,
+    bringToFront: true
+  });
+   $(".tiles").tilesGallery({
+    tileMinHeight: 100,
+    callback: function () {
+        $(".tiles a").lightBox();
+    }
+  });
 }
 module
   .controller('InformationCtrl', informationCtrl);
@@ -54199,6 +54189,16 @@ function informationCtrl($scope, $stateParams, $rootScope,$translate) {
    });
 }
 
+module
+  .controller('HistoryCtrl',historyCtrl);
+function historyCtrl() {
+  $().kwicks('destroy');
+  $('.kwicks').kwicks( {
+          maxSize : 250,
+          spacing : 5,
+          behavior: 'menu'
+        })
+}
 var templatesPath = 'assets/js/templates';
 module.config(['$translateProvider','$locationProvider','$stateProvider','$urlRouterProvider', configFunction]);
 function configFunction($translateProvider,$locationProvider,$stateProvider,$urlRouterProvider) {
@@ -54306,10 +54306,10 @@ function run($rootScope,$http,$translate,$location,$stateParams) {
       $translate.use(langKey);
     }
   $rootScope.backButton = function() {
-    return !(  location.pathname.length != '/ru/' 
-            || location.pathname.length != '/en/'
-            || location.pathname.length != '/charlotte/en/'
-            || location.pathname.length != '/charlotte/ru/');
+    return (  location.pathname!= '/ru/' 
+            && location.pathname!= '/en/'
+            && location.pathname!= '/charlotte/en/'
+            && location.pathname!= '/charlotte/ru/');
   }
     if($location.url().indexOf('/ru/')!=-1) {
       $('body').addClass('ru');
