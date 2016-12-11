@@ -54052,6 +54052,30 @@ return 'pascalprecht.translate';
  var module = angular.module('charlotte', ['ngRoute','pascalprecht.translate','ngCookies','ngSanitize','ui.router']);
 
 module
+  .controller('EventsCtrl',eventsCtrl);
+function eventsCtrl() {
+ $(".btn-black").click(function() {
+    $('html, body').animate({
+      scrollTop: $("#" + $(this).attr('data-to')).offset().top
+    }, 1000);
+  });
+}
+module
+  .controller('GalleryStripCtrl',galleryStripCtrl);
+function galleryStripCtrl() {
+  $('#strip-gallery').Cloud9Carousel({
+    yRadius: 5,
+    autoPlay: 1,
+    bringToFront: true
+  });
+   $(".tiles").tilesGallery({
+    tileMinHeight: 100,
+    callback: function () {
+        $(".tiles a").lightBox();
+    }
+  });
+}
+module
   .controller('ContactUsCtrl',['$scope',contactUsCtrl]);
   function contactUsCtrl($scope) {
   $scope.initMap = function() {
@@ -54125,30 +54149,6 @@ module
   }
 }
 module
-  .controller('EventsCtrl',eventsCtrl);
-function eventsCtrl() {
- $(".btn-black").click(function() {
-    $('html, body').animate({
-      scrollTop: $("#" + $(this).attr('data-to')).offset().top
-    }, 1000);
-  });
-}
-module
-  .controller('GalleryStripCtrl',galleryStripCtrl);
-function galleryStripCtrl() {
-  $('#strip-gallery').Cloud9Carousel({
-    yRadius: 5,
-    autoPlay: 1,
-    bringToFront: true
-  });
-   $(".tiles").tilesGallery({
-    tileMinHeight: 100,
-    callback: function () {
-        $(".tiles a").lightBox();
-    }
-  });
-}
-module
   .controller('HistoryCtrl',historyCtrl);
 function historyCtrl() {
   $().kwicks('destroy');
@@ -54157,6 +54157,23 @@ function historyCtrl() {
           spacing : 5,
           behavior: 'menu'
         })
+}
+module
+  .controller('GalleryCtrl',galleryCtrl);
+function galleryCtrl() {
+  $('#slider-gallery').Cloud9Carousel({
+    yRadius: 5,
+    autoPlay: 1,
+    bringToFront: true
+  });
+
+  $(".tiles").tilesGallery({
+    tileMinHeight: 100,
+    callback: function () {
+        $(".tiles a").lightBox();
+    }
+  });
+ 
 }
 module
   .controller('InformationCtrl', ['$scope','$stateParams','$translate',informationCtrl]);
@@ -54179,23 +54196,6 @@ function informationCtrl($scope, $stateParams ,$translate) {
    });
 }
 
-module
-  .controller('GalleryCtrl',galleryCtrl);
-function galleryCtrl() {
-  $('#slider-gallery').Cloud9Carousel({
-    yRadius: 5,
-    autoPlay: 1,
-    bringToFront: true
-  });
-
-  $(".tiles").tilesGallery({
-    tileMinHeight: 100,
-    callback: function () {
-        $(".tiles a").lightBox();
-    }
-  });
- 
-}
 var templatesPath = 'assets/js/templates';
 module.config(['$translateProvider','$locationProvider','$stateProvider','$urlRouterProvider', configFunction]);
 function configFunction($translateProvider,$locationProvider,$stateProvider,$urlRouterProvider) {

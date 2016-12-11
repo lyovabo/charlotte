@@ -65,10 +65,10 @@ gulp.task('scripts', function() {
       jsPath + '/config.js'
     ])
     .pipe(concat('scripts.js'))
-    .pipe(gulp.dest('app/js'))
+    .pipe(gulp.dest('assets/js/production/'))
     .pipe(rename('scripts.min.js'))
     .pipe(uglify())
-    .pipe(gulp.dest('app/js'));
+    .pipe(gulp.dest('assets/js/production/'));
 });
 gulp.task('sass', function() {
   return gulp.src(['sass/**/*.scss', 'sass/*.scss'])
