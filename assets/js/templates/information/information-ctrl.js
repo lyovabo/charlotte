@@ -1,7 +1,7 @@
 module
-  .controller('InformationCtrl', informationCtrl);
+  .controller('InformationCtrl', ['$scope','$stateParams','$translate',informationCtrl]);
 
-function informationCtrl($scope, $stateParams, $rootScope,$translate) {
+function informationCtrl($scope, $stateParams ,$translate) {
 
    var singer = 'siners.'+$stateParams.singer;
    
@@ -15,8 +15,6 @@ function informationCtrl($scope, $stateParams, $rootScope,$translate) {
 
       $scope.singer.imagesCount =Array.apply(null, {length:  Number.parseInt(res[singer+'.imagesCount'])}).map(Number.call, Number)
       $scope.singer.id = $stateParams.singer;
-      console.log([].constructor($scope.singer.imagesCount) )
    },function(res) {
-    console.log(res);
    });
 }
