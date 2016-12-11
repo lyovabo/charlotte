@@ -105,10 +105,10 @@ function run($rootScope,$http,$translate,$location,$stateParams) {
       $translate.use(langKey);
     }
   $rootScope.backButton = function() {
-    return !(  location.pathname.length != '/ru/' 
-            || location.pathname.length != '/en/'
-            || location.pathname.length != '/charlotte/en/'
-            || location.pathname.length != '/charlotte/ru/');
+    return (  location.pathname!= '/ru/' 
+            && location.pathname!= '/en/'
+            && location.pathname!= '/charlotte/en/'
+            && location.pathname!= '/charlotte/ru/');
   }
     if($location.url().indexOf('/ru/')!=-1) {
       $('body').addClass('ru');
