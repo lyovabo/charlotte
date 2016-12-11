@@ -54052,11 +54052,10 @@ return 'pascalprecht.translate';
  var module = angular.module('charlotte', ['ngRoute','pascalprecht.translate','ngCookies','ngSanitize','ui.router']);
 
 module
-  .controller('ContactUsCtrl', contactUsCtrl);
-  function contactUsCtrl($scope,$routeParams) {
+  .controller('ContactUsCtrl',['$scope',contactUsCtrl]);
+  function contactUsCtrl($scope) {
   $scope.initMap = function() {
-  
-     var myLatLng = { lat: 40.1920621, lng: 44.501738 };
+    var myLatLng = { lat: 40.1920621, lng: 44.501738 };
     var infowindow = new google.maps.InfoWindow({
       content: "<span style='color:#000'>Charlotte</span>"
     });
@@ -54135,23 +54134,6 @@ function eventsCtrl() {
   });
 }
 module
-  .controller('GalleryCtrl',galleryCtrl);
-function galleryCtrl() {
-  $('#slider-gallery').Cloud9Carousel({
-    yRadius: 5,
-    autoPlay: 1,
-    bringToFront: true
-  });
-
-  $(".tiles").tilesGallery({
-    tileMinHeight: 100,
-    callback: function () {
-        $(".tiles a").lightBox();
-    }
-  });
- 
-}
-module
   .controller('GalleryStripCtrl',galleryStripCtrl);
 function galleryStripCtrl() {
   $('#strip-gallery').Cloud9Carousel({
@@ -54165,6 +54147,16 @@ function galleryStripCtrl() {
         $(".tiles a").lightBox();
     }
   });
+}
+module
+  .controller('HistoryCtrl',historyCtrl);
+function historyCtrl() {
+  $().kwicks('destroy');
+  $('.kwicks').kwicks( {
+          maxSize : 250,
+          spacing : 5,
+          behavior: 'menu'
+        })
 }
 module
   .controller('InformationCtrl', informationCtrl);
@@ -54190,14 +54182,21 @@ function informationCtrl($scope, $stateParams, $rootScope,$translate) {
 }
 
 module
-  .controller('HistoryCtrl',historyCtrl);
-function historyCtrl() {
-  $().kwicks('destroy');
-  $('.kwicks').kwicks( {
-          maxSize : 250,
-          spacing : 5,
-          behavior: 'menu'
-        })
+  .controller('GalleryCtrl',galleryCtrl);
+function galleryCtrl() {
+  $('#slider-gallery').Cloud9Carousel({
+    yRadius: 5,
+    autoPlay: 1,
+    bringToFront: true
+  });
+
+  $(".tiles").tilesGallery({
+    tileMinHeight: 100,
+    callback: function () {
+        $(".tiles a").lightBox();
+    }
+  });
+ 
 }
 var templatesPath = 'assets/js/templates';
 module.config(['$translateProvider','$locationProvider','$stateProvider','$urlRouterProvider', configFunction]);

@@ -1,9 +1,8 @@
 module
-  .controller('ContactUsCtrl', contactUsCtrl);
-  function contactUsCtrl($scope,$routeParams) {
+  .controller('ContactUsCtrl',['$scope',contactUsCtrl]);
+  function contactUsCtrl($scope) {
   $scope.initMap = function() {
-  
-     var myLatLng = { lat: 40.1920621, lng: 44.501738 };
+    var myLatLng = { lat: 40.1920621, lng: 44.501738 };
     var infowindow = new google.maps.InfoWindow({
       content: "<span style='color:#000'>Charlotte</span>"
     });
