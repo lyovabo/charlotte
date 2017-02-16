@@ -16,7 +16,9 @@
     "tests"
   ],
   "dependencies": {
-    "angular": "^1.5.9"
+    "angular": "^1.5.9",
+    "angularfire": "^2.3.0",
+    "firebase": "^3.6.9"
   },
   "devDependencies": {
     "angular-route": "^1.5.9",
