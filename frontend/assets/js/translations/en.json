@@ -1,4 +1,4 @@
-{
+{"en":{
   "charlotte": "Charlotte Cabaret",
   "button": {
     "information": "Information",
@@ -627,6 +627,6 @@
     "street": "25 M.Baghramyan Ave.",
     "city": " Yerevan 0019",
     "hrs": "hrs"
+    }
   }
-
 }

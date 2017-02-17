@@ -1,4 +1,4 @@
-{
+{"singers" : {
   "vardan" : {
     "firstName"    : "Vardan",
     "lastName"     : "Sargsyan",
@@ -83,7 +83,6 @@
     "lastName"     : "Ishxanyan",
     "imagesCount"  :  6,
     "about"        : "He is a professional instrumentalist and a musician. When he was 7 he entered specialized music school to learn to play on the violin and graduated in 1983. His music execution can change your world. His music  will help you shift to another world. After a hard working day a lot of people come to our Club to listen to his music. Some people say that hus music relaxes them We advise you relax yourself and spend your evening   at  our Club. Charlotte SHOW."
+    }
   }
-
-
 }

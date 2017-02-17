@@ -1,11 +1,20 @@
 var templatesPath = 'assets/js/templates';
+module.factory('customLoader',function($q,$translate){
+  return function(){
+    var deffered = $q.defer();
+    var ref = firebase.database().ref($translate.proposedLanguage());
+    ref.on('value',function(data){
+      deffered.resolve(data.val());
+    });
+    return deffered.promise;
+  }
+});
+
 module.config(['$translateProvider','$locationProvider','$stateProvider','$urlRouterProvider', configFunction]);
 function configFunction($translateProvider,$locationProvider,$stateProvider,$urlRouterProvider) {
-   $translateProvider
-  .useStaticFilesLoader({
-    prefix : './assets/js/translations/',
-    suffix : '.json'
-  })
+  $translateProvider
+  .useLoader('customLoader');
+  $translateProvider
   .preferredLanguage('en')
   .useLocalStorage();
   $translateProvider.useSanitizeValueStrategy();
@@ -98,17 +107,22 @@ function configFunction($translateProvider,$locationProvider,$stateProvider,$url
   });
 };
 
-module.run(['$rootScope','$http','$translate','$location','$stateParams',run]);
+module.run(['$rootScope','$http','$translate','$location','$stateParams','$firebaseObject',run]);
 
-function run($rootScope,$http,$translate,$location,$stateParams) {
+function run($rootScope,$http,$translate,$location,$stateParams,$firebaseObject) {
+  var ref = firebase.database().ref('en');
+  
+  ref.on('value',function(data){
+    console.log(data.val());
+  })
   $rootScope.changeLanguage = function(langKey) {
       $translate.use(langKey);
     }
   $rootScope.backButton = function() {
-    return (  location.pathname!= '/ru/' 
-            && location.pathname!= '/en/'
-            && location.pathname!= '/charlotte/en/'
-            && location.pathname!= '/charlotte/ru/');
+    return (   location.pathname != '/ru/' 
+            && location.pathname != '/en/'
+            && location.pathname != '/charlotte/en/'
+            && location.pathname != '/charlotte/ru/');
   }
     if($location.url().indexOf('/ru/')!=-1) {
       $('body').addClass('ru');
@@ -126,5 +140,5 @@ function run($rootScope,$http,$translate,$location,$stateParams) {
       }   
     })
   $rootScope.activeLang = $translate.preferredLanguage();
-  $rootScope.charlotte = $translate.instant('charlotte') 
+  $rootScope.charlotte  = $translate.instant('charlotte') 
 }
