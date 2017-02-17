@@ -1,4 +1,4 @@
-{
+{"ru": {
   "charlotte": "КАБАРЕ ШАРЛОТ",
   "button": {
     "information": "Информация",
@@ -369,7 +369,7 @@
       "Jägermeister": "Егермейстер",
       "AstiMartiniRose": "Асти Мартини Россе",
       "AstiMartini": "Асти Мартини",
-      "AstiMartiniProsecco0.2": "Асти Мартини просеко 0.2",
+      "AstiMartiniProsecco02": "Асти Мартини просеко 0.2",
       "Armenianmoist": "Армянское полусухое",
       "Armeniamoist": "Армения полусухое",
       "AbsintheKsięte": "Абсент ксента",
@@ -634,9 +634,8 @@
     "street"    : "Проспект им. М.Баграмян 25",
     "city"      : " Ереван 0019",
     "hrs"       : "ч"
-    
+    }
   }
-
 }
 
 

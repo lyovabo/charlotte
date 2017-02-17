@@ -60,9 +60,11 @@ gulp.task('scripts', function() {
       vPath + '/bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.js',
       vPath + '/bower_components/angular-translate-storage-cookie/angular-translate-storage-cookie.js',
       vPath + '/bower_components/angular-translate-storage-local/angular-translate-storage-local.js',
+      vPath + '/bower_components/firebase/firebase.js',
+      vPath + '/bower_components/angularfire/dist/angularfire.js',
       jsPath + '/index.js',
       jsPath + '/templates/**/*.js',
-      jsPath + '/config.js'
+      // jsPath + '/config.js'
     ])
     .pipe(concat('scripts.js'))
     .pipe(gulp.dest('assets/js/production/'))
